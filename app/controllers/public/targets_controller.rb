@@ -1,5 +1,6 @@
 class Public::TargetsController < ApplicationController
-  def index
+  def new
+    Target.new
   end
 
   def create
@@ -18,5 +19,11 @@ class Public::TargetsController < ApplicationController
   end
 
   def complete
+  end
+
+  private
+
+  def target_params
+    params.require(:target).permit(:user_id, :category_id, :goal, :reason, :deadline, :completion_status, :public_status)
   end
 end

@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :targets
   has_many :favorites
   has_many :unlock_lists
+  # TODO ログインチェックメソッドを実装
 end

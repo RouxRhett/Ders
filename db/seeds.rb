@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # 管理用テストアカウント
-Admin.create(
+Admin.create!(
   email: 'test@test.com',
-  encrypted_password: 'testpass'
+  password: 'testpass'
 )
 
 #ユーザ用テストアカウント
-User.create(
+User.create!(
   email: 'test@test.com',
   name: 'hogehoge',
-  encrypted_password: 'testpass',
+  password: 'testpass',
 )
