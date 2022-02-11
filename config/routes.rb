@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       end
     end
     resources :unlock_lists, only: [:index]
+    resources :tasks, only: [:create, :destroy]
   end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {

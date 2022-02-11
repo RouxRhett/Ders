@@ -19,6 +19,8 @@ class Public::TargetsController < ApplicationController
 
   def show
     @target = Target.find(params[:id])
+    @task = Task.new
+    @tasks = @target.tasks
     # 自分or公開可のじゃなかったらマイぺージに飛ばす処理 TODO
   end
 

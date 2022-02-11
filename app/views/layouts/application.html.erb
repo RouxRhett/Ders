@@ -12,6 +12,7 @@
   <body>
     <% if current_user %>
       <p>ユーザでログイン中</p>
+      <p><%= link_to :mypage, mypage_path %></p>
     <% end %>
     <% if current_admin %>
       <p>管理者でログイン中</p>
