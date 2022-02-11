@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  belongs_to :target
+  has_many :target
 end

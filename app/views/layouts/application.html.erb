@@ -16,6 +16,7 @@
     <% if current_admin %>
       <p>管理者でログイン中</p>
     <% end %>
+    <%= flash[:notice] %>
     <%= yield %>
   </body>
 </html>

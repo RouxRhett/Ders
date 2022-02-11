@@ -12,9 +12,14 @@ Admin.create!(
   password: 'testpass'
 )
 
-#ユーザ用テストアカウント
+# ユーザ用テストアカウント
 User.create!(
   email: 'test@test.com',
   name: 'hogehoge',
   password: 'testpass',
+)
+
+# カテゴリテストデータ
+Category.create!(
+  name: 'hoge'
 )

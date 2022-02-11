@@ -1,0 +1,14 @@
+<p>目標</p>
+<%= @target.goal %>
+<p>設定した理由</p>
+<%= @target.reason %>
+<p>カテゴリー</p>
+<%= @target.category.name %>
+<p>期日</p>
+<%= @target.deadline %>
+<p>公開状態</p>
+<%= @target.public_status %>
+<p>
+<%= link_to :edit, edit_target_path %>|
+<%= link_to :destroy, target_path, method: :delete, data: { confirm: "Are you sure?" } %>
+</p>
