@@ -1,0 +1,5 @@
+<p>
+  <%= @target.goal %>を達成済みにします。問題なければ下のボタンを押してください。
+</p>
+
+  <%= button_to '達成報告する', complete_targets_path, { method: :get, params: {id: @target.id} } %>

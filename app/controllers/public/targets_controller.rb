@@ -51,10 +51,16 @@ class Public::TargetsController < ApplicationController
     redirect_to mypage_path
   end
 
+  def error
+  end
+
   def confirm
+    @target = Target.find(params[:id])
   end
 
   def complete
+    @target = Target.find(params[:id])
+    @target.update(completion_status: true)
   end
 
   private

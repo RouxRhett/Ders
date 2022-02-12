@@ -9,26 +9,30 @@
   <%= @target.deadline %>
   <p>公開状態</p>
   <%= @target.public_status %>
-  <p>
-  <%= link_to :edit, edit_target_path %>|
-  <%= link_to :destroy, target_path, method: :delete, data: { confirm: "Are you sure?" } %>
-  </p>
-  <p>タスク追加</p>
+  <% if !@target.completion_status %>
+    <p>
+      <%= link_to :edit, edit_target_path %>|
+      <%= link_to :destroy, target_path, method: :delete, data: { confirm: "Are you sure?" } %>
+    </p>
+    <%= button_to '達成報告する', confirm_targets_path, { params: {id: @target.id} } %>
+    <p>タスク追加</p>
     <%= bootstrap_form_with model:@task, local: true do |f| %>
       <%= f.hidden_field :target_id, :value => @target.id %>
       <%= f.text_field :name %>
       <%= f.select :time, *[1..24] %>
       <%= f.submit %>
     <% end %>
+  <% end %>
   <p>タスク一覧</p>
   <p>総合<%= @tasks.sum(:time) %>時間</p>
   <% @tasks.each do |task| %>
     <p>
       <%= task.name %> |
       <%= task.time %> |
-      <%= task.created_at %> |
+      <%= task.created_at %>
+      <% if !@target.completion_status %>|
       <%= link_to :destroy, task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
     </p>
   <% end %>
-  <p><%= link_to '達成報告' %></p>
 </div>
