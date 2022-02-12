@@ -4,8 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :targets
-  has_many :favorites
-  has_many :unlock_lists
+  validates :name, :email, presence: true
+  validates :email, uniqueness: true
+  has_many :targets,       dependent: :destroy
+  has_many :favorites,     dependent: :destroy
+  has_many :unlock_lists,  dependent: :destroy
   # TODO ログインチェックメソッドを実装
 end

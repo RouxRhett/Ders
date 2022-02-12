@@ -20,12 +20,13 @@
     <%= f.submit %>
   <% end %>
 <p>タスク一覧</p>
+<p>総合<%= @tasks.sum(:time) %>時間</p>
 <% @tasks.each do |task| %>
   <p>
     <%= task.name %> |
     <%= task.time %> |
     <%= task.created_at %> |
-    <%= link_to :destroy, task_path(task), method: :delete %>
+    <%= link_to :destroy, task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
   </p>
 <% end %>
 <p><%= link_to '達成報告' %></p>

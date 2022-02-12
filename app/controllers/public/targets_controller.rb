@@ -1,4 +1,9 @@
 class Public::TargetsController < ApplicationController
+  def index
+    # @targets = 公開可能な目標、もしくは達成済み目標を格納
+    @targets = Target.where(public_status: true)
+  end
+
   def new
     # 新規登録用のインスタンス変数
     @target = Target.new
