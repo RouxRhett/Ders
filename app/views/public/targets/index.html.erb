@@ -1,6 +1,8 @@
-これはみんなの目標、達成済み目標を表示するページです
-<% @targets.each do |target| %>
-  <p>
-    <%= link_to target.goal, target_path(target)%>
-  </p>
-<% end %>
+<div class='container'>
+  これはみんなの目標、達成済み目標を表示するページです
+  <% @targets.each do |target| %>
+    <p>
+      <%= link_to target.goal, target_path(target)%>
+    </p>
+  <% end %>
+</div>

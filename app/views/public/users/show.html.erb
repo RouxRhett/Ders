@@ -1,8 +1,10 @@
-マイページ
-<%= link_to '目標登録リンク', new_target_path %>
-<p>私の目標一覧</p>
-<% @targets.each do |target| %>
-<p><%= link_to target.goal, target_path(target) %></p>
-<% end %>
-<p>取得した実績</p>
-<%= link_to '実績を見る', unlock_lists_path %>
+<div class='container'>
+  マイページ
+  <%= link_to '目標登録リンク', new_target_path %>
+  <p>私の目標一覧</p>
+  <% @targets.each do |target| %>
+  <p><%= link_to target.goal, target_path(target) %></p>
+  <% end %>
+  <p>取得した実績</p>
+  <%= link_to '実績を見る', unlock_lists_path %>
+</div>
