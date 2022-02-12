@@ -29,12 +29,12 @@ class Public::SessionsController < Devise::SessionsController
   def user_state
     user = User.find_by(email: params[:user][:email])
     return if !user
-      if user.valid_password?(params[:user][:password])
-        if user.is_deleted
-          flash[:notice] = '退会済みユーザです。'
-          redirect_to new_user_session_path
-        end
+    if user.valid_password?(params[:user][:password])
+      if user.is_deleted
+        flash[:notice] = '退会済みユーザです。'
+        redirect_to new_user_session_path
       end
+    end
   end
 
   # If you have extra params to permit, append them to the sanitizer.
