@@ -1,4 +1,6 @@
 class Public::TasksController < ApplicationController
+  before_action :user_login_check
+
   def create
     @task = Task.new(task_params)
     if @task.save

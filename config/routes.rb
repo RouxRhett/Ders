@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     root 'homes#top'
     resources :users,         except: [:new, :show, :destroy]
     resources :categories,    except: [:new, :show]
-    resources :unlock_lists,  except: [:new, :show]
+    resources :achievements,  except: [:new, :show] # アチーブメントに変更あり
     resources :targets,       only:   [:index, :show, :destroy]
   end
 

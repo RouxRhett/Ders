@@ -1,4 +1,6 @@
 class Public::TargetsController < ApplicationController
+  before_action :user_login_check
+
   def index
     # @targets = 公開可能な目標、もしくは達成済み目標を格納
     @targets = Target.where(public_status: true)
@@ -44,8 +46,8 @@ class Public::TargetsController < ApplicationController
   end
 
   def destroy
-    @target = Target.find(params[:id])
-    @target.destroy
+    target = Target.find(params[:id])
+    target.destroy
     redirect_to mypage_path
   end
 
