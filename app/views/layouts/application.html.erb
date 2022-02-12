@@ -10,12 +10,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <% if current_user %>
-      <p>ユーザでログイン中</p>
-    <% end %>
     <% if current_admin %>
+      <%= render 'layouts/header_admin' %>
       <p>管理者でログイン中</p>
+    <% elsif current_user %>
+      <%= render 'layouts/header_user' %>
+      <p>ユーザでログイン中</p>
     <% end %>
     <p><%= flash[:notice] %></p>
     <%= yield %>

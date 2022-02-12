@@ -77,3 +77,5 @@ gem 'refile-mini_magick'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'bootstrap_form'
+
+gem 'rails_admin'
