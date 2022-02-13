@@ -23,3 +23,10 @@ User.create!(
 Category.create!(
   name: 'hoge'
 )
+
+# アチーブメント用データ
+Achievement.create!(
+  name: '初めての目標設定をした!',
+  group: 0,
+  number: 1,
+)

@@ -1,5 +1,19 @@
 <div class='container'>
   解除済み実績
   <% @unlock_lists.each do |list| %>
+  <p>
+  実績名:<%= list.achievement.name %><br>
+  達成条件:
+  <% case list.achievement.group %>
+  <% when 0 %>
+    目標を<%= list.achievement.number %>つ設定する
+  <% when 1 %>
+    タスクを<%= list.achievement.number %>つ追加する
+  <% when 2 %>
+    目標を<%= list.achievement.number %>つ達成する
+  <% end %>
+  <br>
+  取得日:<%= list.created_at %>
+  </p>
   <% end %>
 </div>

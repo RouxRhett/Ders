@@ -15,6 +15,7 @@ class Public::TargetsController < ApplicationController
     @target = Target.new(target_params)
     @target.user_id = current_user.id
     if @target.save
+      achievement_check('target_create')
       flash[:notice] = '保存成功' # 後で変える TODO
       redirect_to target_path(@target)
     else
@@ -71,6 +72,7 @@ class Public::TargetsController < ApplicationController
   def complete
     @target = Target.find(params[:id])
     @target.update(completion_status: true)
+    achievement_check('target_complete')
   end
 
   private

@@ -3,7 +3,9 @@ class Public::TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.user_id = current_user.id
     if @task.save
+      achievement_check('task_create')
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)
