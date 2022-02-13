@@ -9,7 +9,7 @@
   <%= @target.deadline %>
   <p>公開状態</p>
   <%= @target.public_status %>
-  <% if !@target.completion_status %>
+  <% if current_user.id == @target.user_id && !@target.completion_status %>
     <p>
       <%= link_to :edit, edit_target_path %>|
       <%= link_to :destroy, target_path, method: :delete, data: { confirm: "Are you sure?" } %>
@@ -30,8 +30,8 @@
       <%= task.name %> |
       <%= task.time %> |
       <%= task.created_at %>
-      <% if !@target.completion_status %>|
-      <%= link_to :destroy, task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% if current_user.id == @target.user_id && !@target.completion_status %>
+        <%= link_to :destroy, task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>
     </p>
   <% end %>

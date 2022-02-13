@@ -1,0 +1,30 @@
+  <% targets.each do |target| %>
+    <div class='col'>
+      <%= link_to target_path(target), class:'text-dark text-decoration-none' do %>
+        <div class="card text-center my-4">
+          <div class="card-header">
+            <div class="row justify-content-between">
+              <div class='ml-3'>
+                <%= target.goal %>
+              </div>
+              <div class='mr-3'>
+                <%= target.completion_status %>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <table>
+              <tr>
+                <td>期日</td>
+                <td><%= target.deadline %></td>
+              </tr>
+              <tr>
+                <td>進捗</td>
+                <td><%= target.tasks.sum(:time) %>時間</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>

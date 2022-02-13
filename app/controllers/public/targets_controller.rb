@@ -28,20 +28,30 @@ class Public::TargetsController < ApplicationController
     @target = Target.find(params[:id])
     @task = Task.new
     @tasks = @target.tasks
-    # 自分or公開可のじゃなかったらマイぺージに飛ばす処理 TODO
   end
 
   def edit
     @target = Target.find(params[:id])
+    if @target.user == current_user
+      render 'edit'
+    else
+      flash[:notice] = '権限がありません'
+      redirect_to mypage_path
+    end
   end
 
   def update
     @target = Target.find(params[:id])
-    if @target.update(target_params)
-      redirect_to target_path(@target)
+    if @target.user == current_user
+      if @target.update(target_params)
+        redirect_to target_path(@target)
+      else
+        flash[:notice] = '更新失敗' # 後で変える TODO
+        render 'edit'
+      end
     else
-      flash[:notice] = '更新失敗' # 後で変える TODO
-      render 'edit'
+      flash[:notice] = '権限がありません'
+      redirect_to mypage_path
     end
   end
 
