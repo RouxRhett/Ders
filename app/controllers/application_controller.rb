@@ -24,12 +24,12 @@ class ApplicationController < ActionController::Base
     achievement.each do |achieve|
       if judge_column >= achieve.number
         UnlockList.create!(
-          user_id:        current_user.id,
+          user_id: current_user.id,
           achievement_id: achieve.id
         )
       else
         break
-      end 
+      end
     end
   end
 end

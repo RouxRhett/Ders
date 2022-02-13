@@ -78,4 +78,12 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'bootstrap_form'
 
+# 管理画面
 gem 'rails_admin'
+
+# SNS認証
+gem 'omniauth-twitter'        # Twitter認証
+gem 'omniauth-google-oauth2'  # Google認証
+
+# 環境変数化
+gem 'dotenv-rails'
