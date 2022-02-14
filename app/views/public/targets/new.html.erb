@@ -1,13 +1,4 @@
 <div class='container'>
-  目標登録画面
-  new
-  <%= bootstrap_form_with model:@target, local: true do |f| %>
-    <%= f.text_field :goal %>
-    <%= f.text_area :reason %>
-    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: true} %>
-    <%= f.date_field :deadline %>
-    <%= f.radio_button :public_status, 'true' %>
-    <%= f.radio_button :public_status, 'false' %>
-    <%= f.submit %>
-  <% end %>
+  <h4 class='my-4'>目標登録画面</h4>
+  <%= render 'public/targets/form', target: @target %>
 </div>

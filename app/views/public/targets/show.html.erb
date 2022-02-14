@@ -1,50 +1,50 @@
 <div class='container'>
   <div class='my-4'>
     <% if current_user.id == @target.user_id && !@target.completion_status %>
-      <div class="container d-flex justify-content-end">
-        <div class="px-2">
+      <div class='container d-flex justify-content-end'>
+        <div class='px-2'>
           <%= link_to ' 編集する', edit_target_path, class:'fas fa-edit text-success' %>
         </div>
-        <div class="px-2">
-          <%= link_to ' 削除する', target_path, method: :delete, data: { confirm: "Are you sure?" }, class:'fas fa-trash-alt text-danger' %>
+        <div class='px-2'>
+          <%= link_to ' 削除する', target_path, method: :delete, data: { confirm: 'Are you sure?' }, class:'fas fa-trash-alt text-danger' %>
         </div>
       </div>
     <% end %>
-    <div class="container rounded border shadow-sm">
-      <div class="row">
+    <div class='container rounded border shadow-sm'>
+      <div class='row'>
         <% if @target.completion_status %>
-          <div class="col-2 mx-4 py-1 px-0 h5 text-center text-white bg-success rounded-bottom rounded-3">
+          <div class='col-2 mx-4 py-1 px-0 h5 text-center text-white bg-success rounded-bottom rounded-3'>
             <strong>達成済</strong>
         <% else %>
-          <div class="col-2 mx-4 py-1 px-0 h5 text-center bg-warning rounded-bottom rounded-3">
+          <div class='col-2 mx-4 py-1 px-0 h5 text-center bg-warning rounded-bottom rounded-3'>
             <strong>挑戦中!!</strong>
         <% end %>
           </div>
-          <div class="col text-right text-black-50 small">
+          <div class='col text-right text-black-50 small'>
             <%= @target.created_at.strftime('%Y/%m/%d') %> - <%= @target.deadline.strftime('%Y/%m/%d') %>
           </div>
         </div>
-        <div class="row">
-          <div class="col-3 my-auto border-right border-4">
-            <div class="row d-flex justify-content-center align-items-end">
+        <div class='row'>
+          <div class='col-3 my-auto border-right border-4'>
+            <div class='row d-flex justify-content-center align-items-end'>
               あと<span class='h2 my-0'>
                 <%= (@target.deadline - @target.created_at.to_date).to_i %>
               </span>日!!
             </div>
-            <div class="row d-flex justify-content-center align-items-end">
+            <div class='row d-flex justify-content-center align-items-end'>
               現在<span class='h2 my-0'><%= @target.tasks.sum(:time) %></span>時間
             </div>
           </div>
-          <div class="col">
-            <div class="row px-3 my-0 h2"><%= @target.goal %></div>
-            <div class="row px-3 my-0 h5 text-black-50"><%= @target.reason %></div>
+          <div class='col'>
+            <div class='row px-3 my-0 h2'><%= @target.goal %></div>
+            <div class='row px-3 my-0 h5 text-black-50'><%= @target.reason %></div>
           </div>
         </div>
-        <div class="row mb-1 d-flex flex-row-reverse">
-          <div class="col-2 text-right">
-            <span class="badge badge-pill badge-info">#<%= @target.category.name %></span>
+        <div class='row mb-1 d-flex flex-row-reverse'>
+          <div class='col-2 text-right'>
+            <span class='badge badge-pill badge-info'>#<%= @target.category.name %></span>
           </div>
-          <div class="col-2 text-right px-0">公開中</div>
+          <div class='col-2 text-right px-0'>公開中</div>
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@
         <div class='col'>
           <%= form_with model:@task, local: true do |f| %>
           <%= f.hidden_field :target_id, :value => @target.id %>
-          <%= f.text_field :name, class:"form-control form-control-lg", placeholder:'やったことを書こう!!' %>
+          <%= f.text_field :name, class:'form-control form-control-lg', placeholder:'やったことを書こう!!' %>
         </div>
       </div>
       <div class='row my-2'>
@@ -77,24 +77,24 @@
   <% end %>
   <h4>タスク一覧</h4>
   <% @tasks.each do |task| %>
-    <div class="container my-4 rounded border shadow-sm">
-      <div class="row p-3">
-          <div class="col-3 my-auto border-right border-4">
-            <div class="row d-flex justify-content-center align-items-end">
+    <div class='container my-4 rounded border shadow-sm'>
+      <div class='row p-3'>
+          <div class='col-3 my-auto border-right border-4'>
+            <div class='row d-flex justify-content-center align-items-end'>
               <span class='h5 my-0'>
                 <%= task.created_at.to_date %>
               </span>
             </div>
-            <div class="row d-flex justify-content-center align-items-end">
+            <div class='row d-flex justify-content-center align-items-end'>
               <span class='h2 my-0'><%= task.time %></span>時間
             </div>
           </div>
-          <div class="col d-flex align-items-center">
-            <div class="row px-3 my-0 h3"><%= task.name %></div>
+          <div class='col d-flex align-items-center'>
+            <div class='row px-3 my-0 h3'><%= task.name %></div>
           </div>
           <% if current_user.id == @target.user_id && !@target.completion_status %>
             <div class='col-1 text-right h5'>
-              <%= link_to '', task_path(task), method: :delete, data: { confirm: "Are you sure?" }, class:'far fa-times-circle text-danger text-decoration-none' %>
+              <%= link_to '', task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, class:'far fa-times-circle text-danger text-decoration-none' %>
             </div>
           <% end %>
         </div>
