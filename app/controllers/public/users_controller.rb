@@ -4,6 +4,8 @@ class Public::UsersController < ApplicationController
   def show
     @user = current_user
     @targets = current_user.targets
+    @challenge_targets = current_user.targets.where(completion_status: false).count
+    @completed_targets = current_user.targets.where(completion_status: true).count
   end
 
   def unsubscribe

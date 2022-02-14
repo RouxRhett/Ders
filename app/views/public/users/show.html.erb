@@ -1,20 +1,22 @@
 <div class='container'>
-  <div class="row py-4 my-5 bd-mypage rounded">
-		<div class="col-4 text-right">
-      <%= attachment_image_tag @user, :image, :fill, 100, 100, format: "png", fallback:"profile_icon.png", size:'100x100', class:'rounded-circle' %>
+  <div class='row py-4 my-5 bd-mypage rounded'>
+		<div class='col-4 text-right'>
+      <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'png', fallback:'profile_icon.png', size:'100x100', class:'rounded-circle' %>
     </div>
-		<div class="col">
-      <div class="row">
-        <div class="col">
+		<div class='col'>
+      <div class='row'>
+        <div class='col'>
           <strong class=' display-4'><%= current_user.name %></strong>
           <%= link_to unlock_lists_path do%>
-            <i class="btn btn-outline-warning fas fa-trophy iconcolor ml-2"> <%= current_user.unlock_lists.count %></i>
+            <i class='btn btn-outline-warning fas fa-trophy iconcolor ml-2'> <%= current_user.unlock_lists.count %></i>
           <% end %>
         </div>
       </div>
-      <div class="row text-black-50 ml-2">挑戦中:0/達成済み:0</div>
+      <div class='row text-black-50 ml-2'>
+        挑戦中:<%= @challenge_targets %> / 達成済み:<%= @completed_targets %>
+      </div>
     </div>
-		<div class="col-1 d-flex align-items-end flex-column">
+		<div class='col-1 d-flex align-items-end flex-column'>
       <%= link_to '', edit_user_registration_path, class:'btn btn-secondary fas fa-cog mr-3'%>
     </div>
 	</div>

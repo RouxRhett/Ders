@@ -5,6 +5,16 @@ class Public::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
 
+  #新規登録後のリダイレクト先
+  def after_sign_in_path_for(resource)
+    mypage_path
+  end
+
+  #会員情報更新後のリダイレクト先
+  def after_update_path_for(resource)
+    mypage_path
+  end
+
   # GET /resource/sign_up
   # def new
   #   super
