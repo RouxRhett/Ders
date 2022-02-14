@@ -14,6 +14,9 @@
  *= require_self
  */
 @import 'bootstrap';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 .navbar {
   background-color: #00a497;
 }
@@ -39,3 +42,16 @@ footer {
   color: #fafdff;
 }
 /* アクセントカラー#ea5532 スノーホワイト+ピーコックグリーン */
+
+.bd-highlight {
+  background-color: rgba(86,61,124,0.15);
+  border: 1px solid rgba(86,61,124,0.15);
+}
+
+.bd-mypage {
+  background-color: #ecf4fc;
+}
+
+.iconcolor {
+  color: rgb(255, 196, 0);
+}

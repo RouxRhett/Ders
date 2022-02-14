@@ -10,5 +10,5 @@ class User < ApplicationRecord
   has_many :tasks,         dependent: :destroy
   has_many :favorites,     dependent: :destroy
   has_many :unlock_lists,  dependent: :destroy
-  # TODO ログインチェックメソッドを実装
+  attachment :image
 end

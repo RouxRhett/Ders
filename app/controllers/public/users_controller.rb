@@ -2,6 +2,7 @@ class Public::UsersController < ApplicationController
   before_action :user_login_check
 
   def show
+    @user = current_user
     @targets = current_user.targets
   end
 

@@ -87,3 +87,6 @@ gem 'omniauth-google-oauth2'  # Google認証
 
 # 環境変数化
 gem 'dotenv-rails'
+
+# アイコン用
+gem 'font-awesome-sass'
