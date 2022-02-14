@@ -23,10 +23,13 @@ class ApplicationController < ActionController::Base
     achievement = Achievement.where(group: group_num)
     achievement.each do |achieve|
       if judge_column >= achieve.number
-        UnlockList.create!(
-          user_id: current_user.id,
-          achievement_id: achieve.id
-        )
+        if current_user.unlock_lists.find_by(achievement_id: achieve.id)
+        else
+          UnlockList.create!(
+            user_id: current_user.id,
+            achievement_id: achieve.id
+          )
+        end
       else
         break
       end

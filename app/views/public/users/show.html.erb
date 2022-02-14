@@ -19,9 +19,12 @@
     </div>
 	</div>
   <div class='d-flex align-items-center'>
-    <div class='col h3'>私の目標一覧</div>
-    <div class='col-3'>
-      <%= link_to '目標登録リンク', new_target_path, class:'btn btn-warning text-dark text-decoration-none' %>
+    <div class='col h3 m-0'>
+      私の目標一覧
+      <%= link_to '目標を立てる', new_target_path, class:'h4 p-2 mx-3 fas fa-plus-circle btn btn-info text-decoration-none' %>
+    </div>
+    <div class='col-4 text-right'>
+      ソート機能
     </div>
   </div>
   <%= render 'public/targets/index', targets: @targets %>
