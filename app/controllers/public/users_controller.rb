@@ -21,6 +21,7 @@ class Public::UsersController < ApplicationController
       @tab3 = ' active'
     else
       @targets = current_user.targets
+      @tab0 = ' active'
     end
   end
 

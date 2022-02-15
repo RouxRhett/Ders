@@ -1,5 +1,5 @@
 <header class="navbar nav-pills">
-  <%= link_to 'Ders!', mypage_path, class:'navbar-brand' %>
+  <%= link_to 'Ders!', targets_path, class:'navbar-brand' %>
   <div class="dropdown">
     <%= link_to '#', class: 'nav-link p-1 mx-2', 'data-toggle': :dropdown, 'aria-haspopup': :true, 'aria-expanded': :false do %>
     <%= attachment_image_tag current_user, :image, :fill, 40, 40, format: 'png', fallback:'profile_icon.png', size:'40x40', class:'rounded-circle' %>

@@ -1,5 +1,10 @@
 <% content_for(:title, 'みんなの挑戦') %>
 <div class='container'>
-  <h3 class='my-5'>みんながチャレンジしてること！</h2>
-  <%= render 'public/targets/index', targets: @targets %>
+  <h3 class='my-5'>みんなの目標</h2>
+  <div id='navtab'><%# ここは目標用のnavtabを作って条件を諸々変える。TODO %>
+    <%= render 'public/users/navtab', tab0: @tab0, tab1: @tab1, tab2: @tab2, tab3: @tab3 %>
+  </div>
+  <div id='filtering'>
+    <%= render 'public/targets/index', targets: @targets %>
+  </div>
 </div>
