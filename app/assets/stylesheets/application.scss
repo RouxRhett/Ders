@@ -59,3 +59,13 @@ footer {
 .field_with_errors {
   display: contents;
 }
+
+// ヘッダーのアイコンを押した時の背景色を透明にする
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background-color: transparent;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+
+  background-color: #01c2b2;
+}

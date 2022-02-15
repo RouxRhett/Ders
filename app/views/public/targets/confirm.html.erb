@@ -1,5 +1,10 @@
-<p>
-  <%= @target.goal %>を達成済みにします。問題なければ下のボタンを押してください。
-</p>
-
-  <%= button_to '達成報告する', complete_targets_path, { method: :get, params: {id: @target.id} } %>
+<div class='container my-5'>
+  <%= render 'public/targets/target_show', target: @target %>
+  <div class='h5 my-5 text-center'>
+    こちらの目標を達成を達成済みにします。<br />
+    問題なければ下のボタンを押してください。
+  </div>
+  <div class='h5 my-5 text-center'>
+    <%= button_to '達成報告する', complete_targets_path, { method: :get, params: {id: @target.id}, class:'btn btn-info px-5' }%>
+  </div>
+</div>

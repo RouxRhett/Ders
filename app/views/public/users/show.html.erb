@@ -25,9 +25,20 @@
       私の目標一覧
       <%= link_to '目標を立てる', new_target_path, class:'h4 p-2 mx-3 fas fa-plus-circle btn btn-info text-decoration-none' %>
     </div>
-    <div class='col-4 text-right'>
-      ソート機能
-    </div>
   </div>
+  <ul class="nav nav-tabs justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">全て</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">挑戦中</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">達成済み</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">いいね</a>
+    </li>
+  </ul>
   <%= render 'public/targets/index', targets: @targets %>
 </div>
