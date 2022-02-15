@@ -27,19 +27,10 @@
       <%= link_to '目標を立てる', new_target_path, class:'h4 p-2 mx-3 fas fa-plus-circle btn btn-info text-decoration-none' %>
     </div>
   </div>
-  <ul class="nav nav-tabs justify-content-end">
-    <li class="nav-item">
-      <%= link_to '全て', mypage_path(search_flag: 'all'), class:'nav-link' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to '挑戦中', mypage_path(search_flag: 'challenging'), class:'nav-link' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to '達成済み', mypage_path(search_flag: 'cleared'), class:'nav-link' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to 'いいね', mypage_path(search_flag: 'favorite'), class:'nav-link' %>
-    </li>
-  </ul>
-  <%= render 'public/targets/index', targets: @targets %>
+  <div id='navtab'>
+    <%= render 'public/users/navtab', tab0: @tab0, tab1: @tab1, tab2: @tab2, tab3: @tab3 %>
+  </div>
+  <div id='filtering'>
+    <%= render 'public/targets/index', targets: @targets %>
+  </div>
 </div>

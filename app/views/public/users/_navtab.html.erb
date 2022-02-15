@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs justify-content-end">
+  <li class="nav-item">
+    <%= link_to '全て', mypage_path(search_flag: 'all'), class:'nav-link' + tab0.to_s, remote: true %>
+  </li>
+  <li class="nav-item">
+    <%= link_to '挑戦中', mypage_path(search_flag: 'challenging'), class:'nav-link' + tab1.to_s, remote: true %>
+  </li>
+  <li class="nav-item">
+    <%= link_to '達成済み', mypage_path(search_flag: 'cleared'), class:'nav-link' + tab2.to_s, remote: true %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'いいねした目標', mypage_path(search_flag: 'favorite'), class:'nav-link' + tab3.to_s, remote: true %>
+  </li>
+</ul>

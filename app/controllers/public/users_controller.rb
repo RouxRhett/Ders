@@ -3,9 +3,25 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = current_user
-    @targets = current_user.targets
     @challenge_targets = current_user.targets.where(completion_status: false).count
     @completed_targets = current_user.targets.where(completion_status: true).count
+    case params[:search_flag]
+    when 'all'
+      @targets = current_user.targets
+      @tab0 = ' active'
+    when 'challenging'
+      @targets = current_user.targets.where(completion_status: false)
+      @tab1 = ' active'
+    when 'cleared'
+      @targets = current_user.targets.where(completion_status: true)
+      @tab2 = ' active'
+    when 'favorite'
+      favorites = Favorite.where(user_id: current_user.id).pluck(:target_id)
+      @targets = Target.find(favorites)
+      @tab3 = ' active'
+    else
+      @targets = current_user.targets
+    end
   end
 
   def unsubscribe
