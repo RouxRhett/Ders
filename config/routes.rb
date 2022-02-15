@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     # 達成確認画面でリロードした場合にshowを呼び出さないようにする
     get '/targets/confirm',   to: 'targets#error',      as: 'error_targets'
     resources :targets do
+      resource :favorites, only: [:create, :destroy]
       collection do
         post  :confirm
         get   :complete

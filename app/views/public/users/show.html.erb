@@ -29,16 +29,16 @@
   </div>
   <ul class="nav nav-tabs justify-content-end">
     <li class="nav-item">
-      <a class="nav-link active" href="#">全て</a>
+      <%= link_to '全て', mypage_path(search_flag: 'all'), class:'nav-link' %>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">挑戦中</a>
+      <%= link_to '挑戦中', mypage_path(search_flag: 'challenging'), class:'nav-link' %>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">達成済み</a>
+      <%= link_to '達成済み', mypage_path(search_flag: 'cleared'), class:'nav-link' %>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">いいね</a>
+      <%= link_to 'いいね', mypage_path(search_flag: 'favorite'), class:'nav-link' %>
     </li>
   </ul>
   <%= render 'public/targets/index', targets: @targets %>

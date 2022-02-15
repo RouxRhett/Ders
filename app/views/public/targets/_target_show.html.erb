@@ -29,10 +29,22 @@
       </div>
     </div>
     <div class='row mb-1 d-flex flex-row-reverse'>
-      <div class='col-2 text-right'>
+      <div class='col-auto text-right'>
+        <% if target.public_status %>
+          <% if target.favorited_by?(current_user) %>
+            <%= link_to target_favorites_path(target), method: :delete, class:'text-decoration-none' do %>
+              <span class='badge badge-pill m-auto badge-warning far fa-star'><%= target.favorites.count %></span>
+            <% end %>
+          <% else %>
+            <%= link_to target_favorites_path(target), method: :post, class:'text-decoration-none' do %>
+              <span class='badge badge-pill m-auto badge-warning far fa-star'><%= target.favorites.count %></span>
+            <% end %>
+          <% end %>
+        <% else %>
+          <span class='badge badge-pill badge-secondary font-weight-bold'>非公開</span>
+        <% end %>
         <span class='badge badge-pill badge-info'>#<%= target.category.name %></span>
       </div>
-      <div class='col-2 text-right px-0'>公開中</div>
     </div>
   </div>
 </div>
