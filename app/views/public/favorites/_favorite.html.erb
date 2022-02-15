@@ -1,0 +1,9 @@
+<% if target.favorited_by?(current_user) %>
+  <%= link_to target_favorites_path(target), method: :delete, class:'text-decoration-none', remote: true do %>
+    <span class='badge badge-pill m-auto badge-warning fas fa-star'><%= target.favorites.count %></span>
+  <% end %>
+<% else %>
+  <%= link_to target_favorites_path(target), method: :post, class:'text-decoration-none', remote: true do %>
+    <span class='badge badge-pill m-auto badge-warning far fa-star'><%= target.favorites.count %></span>
+  <% end %>
+<% end %>
