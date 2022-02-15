@@ -1,2 +1,9 @@
-<% content_for(:title, 'エラー!!') %>
-リロードしたらこの画面
+<% content_for(:title, 'error!') %>
+<div class='container my-5'>
+  <div class='h5 pt-4 my-5 text-center'>
+    エラーが発生しました。<br />
+  </div>
+  <div class='text-center'>
+    <%= link_to 'マイページに戻る', mypage_path, class:'btn btn-info w-25' %>
+  </div>
+</div>

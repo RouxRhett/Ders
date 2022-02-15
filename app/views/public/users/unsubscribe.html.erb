@@ -1,6 +1,11 @@
 <% content_for(:title, '退会確認') %>
-<div class='container'>
-  退会する？
-  <%= link_to '退会する', withdraw_users_path, method: :patch, data:{ confirm: '退会処理後、トップページに戻ります。' } %>
-  <%= link_to '退会しない', mypage_path %>
+<div class='container my-5'>
+  <div class='h5 pt-4 my-5 text-center'>
+    退会すると、目標の編集等ができなくなります。<br />
+    退会する場合は、「退会する」を押してください。
+  </div>
+  <div class='text-center'>
+    <%= link_to '退会しない', mypage_path, class:'btn btn-success w-25 m-4' %>
+    <%= link_to '退会する', withdraw_users_path, method: :patch, data:{ confirm: '退会処理後、トップページに戻ります。' }, class:'btn btn-danger w-25 m-4' %>
+  </div>
 </div>
