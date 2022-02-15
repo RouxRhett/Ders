@@ -34,7 +34,11 @@
       <div class='row mb-1 d-flex flex-row-reverse'>
         <div class='col-auto text-right'>
           <% if target.public_status %>
-            <span class='badge badge-pill m-auto badge-warning far fa-star'><%= target.favorites.count %></span>
+            <% if target.favorited_by?(current_user) %>
+              <span class='badge badge-pill m-auto badge-warning fas fa-star'><%= target.favorites.count %></span>
+            <% else %>
+              <span class='badge badge-pill m-auto badge-warning far fa-star'><%= target.favorites.count %></span>
+            <% end %>
           <% else %>
             <span class='badge badge-pill badge-secondary font-weight-bold'>非公開</span>
           <% end %>
