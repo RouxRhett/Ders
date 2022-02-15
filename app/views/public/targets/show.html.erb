@@ -1,3 +1,4 @@
+<% content_for(:title, '目標の詳細') %>
 <div class='container'>
   <div class='my-4'>
     <% if current_user.id == @target.user_id && !@target.completion_status %>

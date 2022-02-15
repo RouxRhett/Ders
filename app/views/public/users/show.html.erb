@@ -1,3 +1,4 @@
+<%= content_for(:title, 'マイページ') %>
 <div class='container'>
   <div class='row py-4 my-5 bd-mypage rounded'>
 		<div class='col-4 text-right'>
@@ -7,7 +8,7 @@
       <div class='row'>
         <div class='col'>
           <strong class=' display-4'><%= current_user.name %></strong>
-          <%= link_to unlock_lists_path do%>
+          <%= link_to unlock_lists_path do %>
             <i class='btn btn-outline-warning fas fa-trophy iconcolor ml-2'> <%= current_user.unlock_lists.count %></i>
           <% end %>
         </div>

@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ders</title>
+    <title><%# ページタイトルが設定されていない箇所は'Ders'のみ表示 %>
+      <% if content_for?(:title) %>
+        <%= yield(:title) + ' | Ders' %>
+      <% else %>
+        Ders
+      <% end %>
+    </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

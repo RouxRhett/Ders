@@ -1,3 +1,4 @@
+<% content_for(:title, '退会確認') %>
 <div class='container'>
   退会する？
   <%= link_to '退会する', withdraw_users_path, method: :patch, data:{ confirm: '退会処理後、トップページに戻ります。' } %>
