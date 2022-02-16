@@ -2,8 +2,32 @@ class Public::TargetsController < ApplicationController
   before_action :user_login_check
 
   def index
-    # @targets = 公開可能な目標、もしくは達成済み目標を格納
-    @targets = Target.where(public_status: true)
+    @categories = Category.all
+    if params[:filter]
+      @cat_id = params[:filter]
+    else
+      @cat_id = nil
+    end
+
+    case params[:filter_type]
+    when 'true'
+      @filter_type = true
+      @tab1 = ' active'
+    when 'false'
+      @filter_type = false
+      @tab0 = ' active'
+    else
+      @filter_type = true
+      @tab1 = ' active'
+    end
+
+    if @cat_id
+      @targets = Target.where(completion_status: @filter_type, category_id: @cat_id)
+      @category_name = Category.find(@cat_id).name
+    else
+      @targets = Target.where(completion_status: @filter_type)
+      @category_name = '全て'
+    end
   end
 
   def new
