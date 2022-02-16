@@ -17,6 +17,10 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+#wrap {
+  overflow: hidden;
+}
+
 .navbar {
   background-color: #00a497;
 }

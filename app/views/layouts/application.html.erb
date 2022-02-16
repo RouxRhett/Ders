@@ -13,16 +13,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%# 500px以下だとレイアウトが崩れる %>
-    <meta name="viewport" content="width=530, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
+    <div id="wrap">
     <% if current_user %>
       <%= render 'layouts/header_user' %>
     <% end %>
     <p><%= flash[:notice] %></p>
     <%= yield %>
     <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
