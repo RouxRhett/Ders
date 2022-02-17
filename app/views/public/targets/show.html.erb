@@ -16,11 +16,11 @@
     <div class='text-center'>
       <%= button_to '目標を達成した!', confirm_targets_path, { params: {id: @target.id}, class:'btn btn-info px-5' } %>
     </div>
-        <h4 class='mt-4'>タスク追加</h4>
+    <h4 class='mt-4'>タスク追加</h4>
     <div class='container my-4 rounded border shadow-sm'>
+      <%= form_with model:@task, local: true do |f| %>
       <div class='row my-3'>
         <div class='col'>
-          <%= form_with model:@task, local: true do |f| %>
           <%= f.hidden_field :target_id, :value => @target.id %>
           <%= f.text_field :name, class:'form-control form-control-lg', placeholder:'やったことを書こう!!' %>
         </div>
@@ -35,8 +35,8 @@
         <div class='col-auto d-flex align-items-center'>
           <%= f.submit class:'btn btn-info' %>
         </div>
-      <% end %>
       </div>
+      <% end %>
     </div>
   <% end %>
   <h4>タスク一覧</h4>
