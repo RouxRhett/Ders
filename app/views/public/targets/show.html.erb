@@ -1,0 +1,67 @@
+<% content_for(:title, '目標の詳細') %>
+<div class='container'>
+  <div class='my-4'>
+    <% if current_user.id == @target.user_id && !@target.completion_status %>
+      <div class='container d-flex justify-content-end'>
+        <div class='px-2'>
+          <%= link_to ' 編集する', edit_target_path, class:'fas fa-edit text-success' %>
+        </div>
+        <div class='px-2'>
+          <%= link_to ' 削除する', target_path, method: :delete, data: { confirm: 'Are you sure?' }, class:'fas fa-trash-alt text-danger' %>
+        </div>
+      </div>
+    <% end %>
+    <%= render 'public/targets/target_show', target: @target %>
+  <% if current_user.id == @target.user_id && !@target.completion_status %>
+    <div class='text-center'>
+      <%= button_to '目標を達成した!', confirm_targets_path, { params: {id: @target.id}, class:'btn btn-info px-5' } %>
+    </div>
+        <h4 class='mt-4'>タスク追加</h4>
+    <div class='container my-4 rounded border shadow-sm'>
+      <div class='row my-3'>
+        <div class='col'>
+          <%= form_with model:@task, local: true do |f| %>
+          <%= f.hidden_field :target_id, :value => @target.id %>
+          <%= f.text_field :name, class:'form-control form-control-lg', placeholder:'やったことを書こう!!' %>
+        </div>
+      </div>
+      <div class='row my-2'>
+        <div class='col-3 my-2'>
+          <%= f.select :time, *[1..24], {}, class:'form-control' %>
+        </div>
+        <div class='col my-0 h5 d-flex align-items-center'>
+          時間
+        </div>
+        <div class='col-auto d-flex align-items-center'>
+          <%= f.submit class:'btn btn-info' %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  <% end %>
+  <h4>タスク一覧</h4>
+  <% @tasks.each do |task| %>
+    <div class='container my-4 rounded border shadow-sm'>
+      <div class='row p-3'>
+          <div class='col-3 my-auto border-right border-4'>
+            <div class='row d-flex justify-content-center align-items-end'>
+              <span class='h5 my-0'>
+                <%= task.created_at.to_date %>
+              </span>
+            </div>
+            <div class='row d-flex justify-content-center align-items-end'>
+              <span class='h2 my-0'><%= task.time %></span>時間
+            </div>
+          </div>
+          <div class='col d-flex align-items-center'>
+            <div class='row px-3 my-0 h3'><%= task.name %></div>
+          </div>
+          <% if current_user.id == @target.user_id && !@target.completion_status %>
+            <div class='col-1 text-right h5'>
+              <%= link_to '', task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, class:'far fa-times-circle text-danger text-decoration-none' %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  <% end %>
+</div>

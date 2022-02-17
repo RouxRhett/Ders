@@ -1,0 +1,38 @@
+<% content_for(:title, 'ログイン') %>
+<div class='container my-5'>
+  <h2 class='ml-5'>ログイン</h2>
+
+  <%= form_with model: resource, as: resource_name, url: session_path(resource_name),local: true do |f| %>
+    <div class='form-group'>
+      <%= f.label :email, class:'col col-form-label' %><br />
+      <div class='col'>
+        <%= f.email_field :email, autofocus: true, autocomplete: 'email', class:'form-control'  %>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :password, class:'col col-form-label' %><br />
+      <div class='col'>
+        <%= f.password_field :password, autocomplete: 'current-password', class:'form-control'  %>
+      </div>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+    <div class='form-group form-check'>
+      <div class='col'>
+        <%= f.check_box :remember_me, class:'form-check-input' %>
+        <%= f.label :remember_me, class:'form-check-label' %>
+      </div>
+    </div>
+    <% end %>
+
+    <div class='form-group'>
+      <div class='col'>
+        <%= f.submit 'Log in', class:'btn btn-info' %>
+      </div>
+    </div>
+  <% end %>
+
+  <p>登録は<%= link_to 'こちら', new_user_registration_path %>から!</p>
+  <%# render 'public/shared/links' %>
+</div>

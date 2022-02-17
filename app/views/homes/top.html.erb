@@ -1,0 +1,8 @@
+<% content_for(:title, 'トップページ') %>
+<div class='container'>
+  ようこそ
+
+  トップ画面
+  <p><%= link_to 'ユーザログイン', new_user_session_path %></p>
+  <p><%= link_to '管理者ログイン', rails_admin_path %></p>
+</div>

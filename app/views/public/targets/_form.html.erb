@@ -1,0 +1,37 @@
+<%= form_with model: target, local: true do |f| %>
+<div class='form-group row'>
+  <%= f.label :goal, class:'col-3 col-form-label' %>
+  <div class='col'><%= f.text_field :goal, class:'form-control', placeholder:'例:参考書を1冊終わらせる!!' %></div>
+</div>
+<div class='form-group row'>
+  <%= f.label :reason, class:'col-3 col-form-label' %>
+  <div class='col'><%= f.text_area :reason, class:'form-control', placeholder:'意味込みを書いてね' %></div>
+</div>
+<div class='form-group row'>
+  <%= f.label :category_id, class:'col-3 col-form-label' %>
+  <div class='col'>
+    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: true}, class:'form-control' %></div>
+</div>
+<div class='form-group row'>
+  <%= f.label :deadline, class:'col-3 col-form-label' %>
+  <div class='col'><%= f.date_field :deadline, class:'form-control' %></div>
+</div>
+<div class='form-group'>
+  <div class='row'>
+    <%= f.label :public_status, class:'col-3 col-form-label' %>
+    <div class='col'>
+      <div class='form-check'>
+        <%= f.radio_button :public_status, 'true', class:'form-check-input' %>
+        <%= f.label '公開', class:'form-check-label' %>
+      </div>
+      <div class='form-check'>
+        <%= f.radio_button :public_status, 'false', class:'form-check-input' %>
+        <%= f.label '非公開', class:'form-check-label' %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='form-group row mr-3 flex-row-reverse'>
+  <%= f.submit class:'btn btn-info' %>
+</div>
+<% end %>

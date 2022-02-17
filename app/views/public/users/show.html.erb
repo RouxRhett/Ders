@@ -1,0 +1,38 @@
+<%= content_for(:title, 'マイページ') %>
+<div class='container'>
+  <div class='row pb-4 pt-2 my-5 bd-mypage rounded d-flex justify-content-center'>
+    <div class='row'>
+      <div class='col-12 text-right'>
+        <%= link_to '', edit_user_registration_path, class:'btn btn-secondary fas fa-cog mr-2'%>
+      </div>
+      <div class='col-4 text-right'>
+        <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'png', fallback:'profile_icon.png', size:'100x100', class:'rounded-circle' %>
+      </div>
+      <div class='col'>
+        <div class='row'>
+          <div class='col'>
+            <strong class=' display-4'><%= current_user.name %></strong>
+            <%= link_to unlock_lists_path do %>
+              <i class='btn btn-outline-warning fas fa-trophy iconcolor ml-2'> <%= current_user.unlock_lists.count %></i>
+            <% end %>
+          </div>
+        </div>
+        <div class='row text-black-50 ml-2'>
+          挑戦中:<%= @challenge_targets %> / 達成済み:<%= @completed_targets %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='d-flex align-items-center'>
+    <div class='col h3 m-0'>
+      私の目標一覧
+      <%= link_to '目標を立てる', new_target_path, class:'h4 p-2 mx-3 fas fa-plus-circle btn btn-info text-decoration-none' %>
+    </div>
+  </div>
+  <div id='navtab'>
+    <%= render 'public/users/navtab', tab0: @tab0, tab1: @tab1, tab2: @tab2, tab3: @tab3 %>
+  </div>
+  <div id='filtering'>
+    <%= render 'public/targets/index', targets: @targets %>
+  </div>
+</div>

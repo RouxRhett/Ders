@@ -1,0 +1,28 @@
+<% content_for(:title, '管理者ログイン') %>
+<div class='container my-5'>
+  <h2 class='ml-5'>管理画面ログイン</h2>
+
+  <%= form_with model: resource, as: resource_name, url: session_path(resource_name),local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :email, class:'col col-form-label' %><br />
+      <div class='col'>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control'  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, class:'col col-form-label' %><br />
+      <div class='col'>
+        <%= f.password_field :password, autocomplete: "current-password", class:'form-control'  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class='col'>
+        <%= f.submit "Log in", class:"btn btn-info" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%# render "admin/shared/links" %>
+</div>

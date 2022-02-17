@@ -1,0 +1,20 @@
+<div class="dropdown d-flex justify-content-end">
+  <%= link_to 'カテゴリ', '', class:'btn btn-info dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': true, 'aria-expanded': false %>
+  <div class="dropdown-menu">
+    <%= link_to '全て', targets_path(filter_type: filter_type), class:'dropdown-item'%>
+    <% @categories.each do |category| %>
+      <%= link_to category.name, targets_path(filter_type: filter_type, filter: category.id), class:'dropdown-item', remote: true %>
+    <% end %>
+  </div>
+</div>
+<ul class="nav nav-tabs justify-content-left">
+  <li class="nav-item">
+    <%= link_to '挑戦中', targets_path(filter_type: false, filter: cat_id ), class:'nav-link' + tab0.to_s, remote: true %>
+  </li>
+  <li class="nav-item">
+    <%= link_to '達成済', targets_path(filter_type: true, filter: cat_id ), class:'nav-link' + tab1.to_s, remote: true %>
+  </li>
+</ul>
+<div class='row m-3'>
+  <div class='col text-left h5'>カテゴリ: <span class='badge badge-pill badge-info'>#<%= @category_name %></span></div>
+</div>

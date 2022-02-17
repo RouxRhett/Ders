@@ -1,0 +1,44 @@
+<div class='container rounded border shadow-sm'>
+  <div class='row'>
+    <% if target.completion_status %>
+    <div class='col-3 col-sm-2 mx-4 py-1 px-0 h5 text-center text-white bg-success rounded-bottom rounded-3'>
+      <strong>達成済</strong>
+      <% else %>
+      <div class='col-3 col-sm-2 mx-4 py-1 px-0 h5 text-center bg-warning rounded-bottom rounded-3'>
+        <strong>挑戦中!!</strong>
+        <% end %>
+      </div>
+      <div class='col text-right text-black-50 small'>
+        <%= target.created_at.strftime('%Y/%m/%d') %> - <%= target.deadline.strftime('%Y/%m/%d') %>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-3 my-auto border-right border-4'>
+        <div class='row d-flex justify-content-center align-items-end'>
+          あと<span class='h2 my-0'>
+            <%= (target.deadline - Time.now.to_date).to_i %>
+          </span>日!!
+        </div>
+        <div class='row d-flex justify-content-center align-items-end'>
+          現在<span class='h2 my-0'><%= target.tasks.sum(:time) %></span>時間
+        </div>
+      </div>
+      <div class='col'>
+        <div class='row px-3 my-0 h2'><%= target.goal %></div>
+        <div class='row px-3 my-0 h5 text-black-50'><%= target.reason %></div>
+      </div>
+    </div>
+    <div class='row mb-1 d-flex flex-row-reverse'>
+      <div class='col-auto text-right'>
+        <% if target.public_status %>
+          <i id='favorite_<%= target.id %>', class='col'>
+            <%= render 'public/favorites/favorite', target: target %>
+          </i>
+        <% else %>
+          <span class='badge badge-pill badge-secondary font-weight-bold'>非公開</span>
+        <% end %>
+        <span class='badge badge-pill badge-info'>#<%= target.category.name %></span>
+      </div>
+    </div>
+  </div>
+</div>
