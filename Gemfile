@@ -84,6 +84,7 @@ gem 'rails_admin'
 # SNS認証
 gem 'omniauth-twitter'        # Twitter認証
 gem 'omniauth-google-oauth2'  # Google認証
+gem 'omniauth-rails_csrf_protection'
 
 # 環境変数化
 gem 'dotenv-rails'
