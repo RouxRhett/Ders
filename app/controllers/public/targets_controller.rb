@@ -103,7 +103,7 @@ class Public::TargetsController < ApplicationController
 
   def target_params
     params.require(:target).permit(
-      :category_id, :goal, :reason, :deadline, :completion_status, :public_status
+      :category_id, :goal, :reason, :deadline, :completion_status, :public_status, :num_tgt
     )
   end
 end
