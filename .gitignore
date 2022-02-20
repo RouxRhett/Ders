@@ -32,3 +32,6 @@
 
 # 環境変数化設定
 /.env
+
+# GitHub Actions用のファイル
+/.github/*
