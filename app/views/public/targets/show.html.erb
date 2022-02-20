@@ -27,10 +27,10 @@
       </div>
       <div class='row my-2'>
         <div class='col-3 my-2'>
-          <%= f.select :time, *[1..24], {}, class:'form-control' %>
+          <%= f.text_field :time, class:'form-control' %>
         </div>
         <div class='col my-0 h5 d-flex align-items-center'>
-          時間
+          <%= @target.category.name %>
         </div>
         <div class='col-auto d-flex align-items-center'>
           <%= f.submit class:'btn btn-info' %>
@@ -50,7 +50,7 @@
               </span>
             </div>
             <div class='row d-flex justify-content-center align-items-end'>
-              <span class='h2 my-0'><%= task.time %></span>時間
+              <span class='h2 my-0'><%= task.time %></span><%= @target.category.name %>
             </div>
           </div>
           <div class='col d-flex align-items-center'>
