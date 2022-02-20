@@ -22,10 +22,10 @@ class Public::TargetsController < ApplicationController
     end
 
     if @cat_id
-      @targets = Target.where(completion_status: @filter_type, category_id: @cat_id)
+      @targets = Target.where(completion_status: @filter_type, category_id: @cat_id).order(:deadline)
       @category_name = Category.find(@cat_id).name
     else
-      @targets = Target.where(completion_status: @filter_type)
+      @targets = Target.where(completion_status: @filter_type).order(:deadline)
       @category_name = '全て'
     end
   end

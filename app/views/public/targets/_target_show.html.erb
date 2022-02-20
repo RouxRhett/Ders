@@ -1,12 +1,12 @@
 <div class='container rounded border shadow-sm'>
   <div class='row'>
     <% if target.completion_status %>
-    <div class='col-3 col-sm-2 mx-4 py-1 px-0 h5 text-center text-white bg-success rounded-bottom rounded-3'>
-      <strong>達成済</strong>
-      <% else %>
+      <div class='col-3 col-sm-2 mx-4 py-1 px-0 h5 text-center text-white bg-success rounded-bottom rounded-3'>
+        <strong>達成済</strong>
+    <% else %>
       <div class='col-3 col-sm-2 mx-4 py-1 px-0 h5 text-center bg-warning rounded-bottom rounded-3'>
         <strong>挑戦中!!</strong>
-        <% end %>
+    <% end %>
       </div>
       <div class='col text-right text-black-50 small'>
         <%= target.created_at.strftime('%Y/%m/%d') %> - <%= target.deadline.strftime('%Y/%m/%d') %>
@@ -20,7 +20,7 @@
           </span>日!!
         </div>
         <div class='row d-flex justify-content-center align-items-end'>
-          <span class='h2 my-0'><%= target.tasks.sum(:time) %></span>/<b class='text-black-50'><%= target.num_tgt %><%= target.category.name %></b>
+          <span class='h2 my-0'><%= target.tasks.sum(:time) %></span>/<b class='text-black-50'><%= target.num_tgt %> <%= target.category.name %></b>
         </div>
       </div>
       <div class='col'>
