@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2022_02_20_050013) do
     t.boolean "public_status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "num_tgt"
+    t.integer "num_tgt", default: 0, null: false
   end
 
   create_table "tasks", force: :cascade do |t|

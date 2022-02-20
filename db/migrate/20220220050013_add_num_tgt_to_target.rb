@@ -1,5 +1,5 @@
 class AddNumTgtToTarget < ActiveRecord::Migration[5.2]
   def change
-    add_column :targets, :num_tgt, :integer
+    add_column :targets, :num_tgt, :integer, null: false, default: 0
   end
 end
