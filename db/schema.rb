@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_14_032456) do
+ActiveRecord::Schema.define(version: 2022_02_20_050013) do
 
   create_table "achievements", force: :cascade do |t|
     t.string "name", null: false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_032456) do
     t.boolean "public_status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "num_tgt"
   end
 
   create_table "tasks", force: :cascade do |t|
