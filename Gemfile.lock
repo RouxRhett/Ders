@@ -423,6 +423,7 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   mysql2
+  omniauth
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   omniauth-twitter

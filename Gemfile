@@ -82,6 +82,7 @@ gem 'bootstrap_form'
 gem 'rails_admin'
 
 # SNS認証
+gem 'omniauth'
 gem 'omniauth-twitter'        # Twitter認証
 gem 'omniauth-google-oauth2'  # Google認証
 gem 'omniauth-rails_csrf_protection'
