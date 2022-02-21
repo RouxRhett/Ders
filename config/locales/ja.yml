@@ -5,6 +5,12 @@ ja:
       user:
         name: 名前
         image: プロフィール画像
+      target:
+        goal: 目標
+        reason: 理由や意気込み
+        num_tgt: 数値化してみよう
+        deadline: いつまでに？
+        public_status: 公開する？
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
