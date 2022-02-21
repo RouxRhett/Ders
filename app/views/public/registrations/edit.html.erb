@@ -1,6 +1,11 @@
 <% content_for(:title, 'アカウント編集') %>
 <div class='container my-5'>
-  <h2 class='ml-5'>Edit <%= resource_name.to_s.humanize %></h2>
+  <div class='container text-right'>
+    <p>
+      <%= link_to '戻る', :back, class:'btn btn-info'%>
+    </p>
+  </div>
+  <h2 class='ml-5'><%= current_user.name %>さんの情報</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render 'public/shared/error_messages', resource: resource %>
@@ -35,12 +40,12 @@
 
       <div class='form-group'>
         <div class='col'>
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.label :password %> <small><i>(変更しない場合は空欄のままにしてください)</i></small><br />
         </div>
         <div class='col'>
           <%= f.password_field :password, autocomplete: 'new-password', class:'form-control' %>
           <% if @minimum_password_length %>
-            <small class='form-text text-muted'><%= @minimum_password_length %> characters minimum</small>
+            <small class='form-text text-muted'><%= @minimum_password_length %> 文字以上</small>
           <% end %>
         </div>
       </div>
@@ -55,14 +60,13 @@
 
     <div class='form-group'>
       <div class='col'>
-        <%= f.submit 'Update', class:'btn btn-info' %>
+        <%= f.submit class:'btn btn-info' %>
       </div>
     </div>
   <% end %>
 
-  <h3 class='ml-5'>Cancel my account</h3>
-
-  <p>Unhappy? <%= link_to 'Cancel my account', unsubscribe_users_path %></p>
-
-  <%= link_to 'Back', :back %>
+  <h3 class='ml-5'>アカウントの退会</h3>
+  <div class='container py-2 text-center'>
+    <p>退会は <%= link_to 'こちら', unsubscribe_users_path %></p>
+  </div>
 </div>
