@@ -95,3 +95,6 @@ end
 
 # アイコン用
 gem 'font-awesome-sass'
+
+# デバッグ用
+gem 'pry-byebug', group: :development
