@@ -6,6 +6,9 @@ class Public::TasksController < ApplicationController
     @task.user_id = current_user.id
     if @task.save
       achievement_check('task_create')
+      if @unlock_total != 0
+        flash[:info] = '実績を' + @unlock_total.to_s + 'つ解除しました！'
+      end
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)

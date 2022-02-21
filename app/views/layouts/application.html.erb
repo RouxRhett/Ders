@@ -21,7 +21,9 @@
     <% if current_user %>
       <%= render 'layouts/header_user' %>
     <% end %>
-    <p><%= flash[:notice] %></p>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
     </div>

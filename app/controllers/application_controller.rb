@@ -1,14 +1,17 @@
 class ApplicationController < ActionController::Base
+  add_flash_types :success, :info, :warning, :danger
+
   # ユーザーログインチェック
   def user_login_check
     if !current_user
-      flash[:notice] = 'ログインしてください'
+      flash[:danger] = 'ログインしてください'
       redirect_to new_user_session_path
     end
   end
 
   # 実績解除用判定メソッド(グループの分類についてはachievement.rbに記述)
   def achievement_check(group_name)
+    @unlock_total = 0
     case  group_name
     when  'target_create' # 目標を設定した時
       judge_column = current_user.targets.count
@@ -29,6 +32,7 @@ class ApplicationController < ActionController::Base
             user_id: current_user.id,
             achievement_id: achieve.id
           )
+          @unlock_total += 1
         end
       else
         break

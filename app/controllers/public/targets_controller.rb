@@ -40,10 +40,13 @@ class Public::TargetsController < ApplicationController
     @target.user_id = current_user.id
     if @target.save
       achievement_check('target_create')
-      flash[:notice] = '保存成功' # 後で変える TODO
+      if @unlock_total != 0
+        flash[:info] = '実績を' + @unlock_total.to_s + 'つ解除しました！'
+      end
+      flash[:success] = '保存成功' # 後で変える TODO
       redirect_to target_path(@target)
     else
-      flash[:notice] = '保存失敗' # 後で変える TODO
+      flash[:danger] = '保存失敗' # 後で変える TODO
       # indexが存在せず、renderで対応すると失敗後リロードでエラーが出る為
       redirect_to new_target_path
     end
@@ -60,7 +63,7 @@ class Public::TargetsController < ApplicationController
     if @target.user == current_user
       render 'edit'
     else
-      flash[:notice] = '権限がありません'
+      flash[:danger] = '権限がありません'
       redirect_to mypage_path
     end
   end
@@ -69,13 +72,14 @@ class Public::TargetsController < ApplicationController
     @target = Target.find(params[:id])
     if @target.user == current_user
       if @target.update(target_params)
+        flash[:success] = '更新成功' # 後で変える TODO
         redirect_to target_path(@target)
       else
-        flash[:notice] = '更新失敗' # 後で変える TODO
+        flash[:danger] = '更新失敗' # 後で変える TODO
         render 'edit'
       end
     else
-      flash[:notice] = '権限がありません'
+      flash[:danger] = '権限がありません'
       redirect_to mypage_path
     end
   end
@@ -97,6 +101,9 @@ class Public::TargetsController < ApplicationController
     @target = Target.find(params[:id])
     @target.update(completion_status: true)
     achievement_check('target_complete')
+    if @unlock_total != 0
+      flash[:info] = '実績を' + @unlock_total.to_s + 'つ解除しました！'
+    end
   end
 
   private
