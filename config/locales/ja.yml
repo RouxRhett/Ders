@@ -57,6 +57,7 @@ ja:
     table_headers:
       model_name: "モデル名"
       last_used: "最終アクセス日"
+      last_created: "最終更新"
       records: "レコード数"
       username: "ユーザ"
       changes: "変更"
