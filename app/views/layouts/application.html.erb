@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= favicon_link_tag('favicon.ico') %>
     <title><%# ページタイトルが設定されていない箇所は'Ders'のみ表示 %>
       <% if content_for?(:title) %>
         <%= yield(:title) + ' | Ders' %>
