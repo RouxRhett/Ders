@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, path: 'users', skip: [:passwords], controllers: {
     registrations: 'public/registrations',
     sessions: 'public/sessions',
-    omniauth_callbacks: 'public/users/omniauth_callbacks'
+    omniauth_callbacks: 'public/users/omniauth_callbacks',
   }
 
   scope module: 'public' do
