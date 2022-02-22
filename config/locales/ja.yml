@@ -154,7 +154,22 @@ ja:
         col_sep: "区切り文字"
         col_sep_help: "空白の場合は'%{value}'区切りです" # value is default_col_sep
   activerecord:
+    models:
+      achievement: 実績
+      admin: 管理者
+      category: カテゴリ
+      favorite: お気に入り
+      task: タスク
+      target: 目標
+      unlock_list: 実績解除リスト
+      user: ユーザー
     attributes:
+      achievement:
+      admin:
+      category:
+      favorite:
+      task:
+      unlock_list:
       user:
         name: 名前
         image: プロフィール画像
