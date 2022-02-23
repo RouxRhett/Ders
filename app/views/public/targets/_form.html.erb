@@ -1,5 +1,5 @@
+<%= render 'public/shared/error_messages', resource: target %>
 <%= form_with model: target, local: true do |f| %>
-  <%= render 'public/shared/error_messages', resource: target %>
 <div class='form-group row'>
   <%= f.label :goal, class:'col-3 col-form-label' %>
   <div class='col'><%= f.text_field :goal, class:'form-control', placeholder:'例:参考書を1冊終わらせる!!', required: true %></div>
@@ -39,4 +39,19 @@
 <div class='form-group row mr-3 flex-row-reverse'>
   <%= f.submit class:'btn btn-info' %>
 </div>
+<% end %>
+
+<%# バリデーションエラー時にURLが変わってしまう為の対策 %>
+<% if target.errors.any? %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var link = location.href;
+      if((link.substring(link.length - 7)) == "targets"){
+        var path = 'new'
+      } else {
+        var path = 'edit'
+      }
+      history.pushState('', '', location.href + '/' + path)
+    });
+  </script>
 <% end %>
