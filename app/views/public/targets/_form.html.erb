@@ -1,4 +1,5 @@
 <%= form_with model: target, local: true do |f| %>
+  <%= render 'public/shared/error_messages', resource: target %>
 <div class='form-group row'>
   <%= f.label :goal, class:'col-3 col-form-label' %>
   <div class='col'><%= f.text_field :goal, class:'form-control', placeholder:'例:参考書を1冊終わらせる!!' %></div>

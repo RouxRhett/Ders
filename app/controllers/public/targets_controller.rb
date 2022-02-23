@@ -48,8 +48,9 @@ class Public::TargetsController < ApplicationController
       redirect_to target_path(@target)
     else
       flash[:danger] = '保存失敗' # 後で変える TODO
+      render 'new'
       # indexが存在せず、renderで対応すると失敗後リロードでエラーが出る為
-      redirect_to new_target_path
+      # redirect_to new_target_path
     end
   end
 
