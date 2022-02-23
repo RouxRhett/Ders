@@ -176,6 +176,7 @@ ja:
       target:
         goal: 目標
         reason: 理由や意気込み
+        category: 数値化のカテゴリ
         num_tgt: 数値化してみよう
         deadline: いつまでに？
         public_status: 公開する？
