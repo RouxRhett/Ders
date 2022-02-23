@@ -12,5 +12,7 @@ class Target < ApplicationRecord
   validates :goal, presence: true
   validates :reason, presence: true
   validates :deadline, presence: true
-  validates :num_tgt, presence: true
+  validates :num_tgt, presence: true, numericality: {
+    only_integer: true, greater_than_or_equal_to: 1,
+  }
 end
