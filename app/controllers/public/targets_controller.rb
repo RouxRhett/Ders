@@ -77,7 +77,8 @@ class Public::TargetsController < ApplicationController
         flash[:success] = '更新成功' # 後で変える TODO
         redirect_to target_path(@target)
       else
-        flash[:danger] = '更新失敗' # 後で変える TODO
+        # バリデーションエラーを表示したためフラッシュメッセージをコメントアウト
+        # flash[:danger] = '更新失敗' # 後で変える TODO
         render 'edit'
       end
     else
