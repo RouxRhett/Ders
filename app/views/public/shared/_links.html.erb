@@ -21,7 +21,11 @@
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to " | #{OmniAuth::Utils.camelize(provider)}でログイン", omniauth_authorize_path(resource_name, provider), method: :post, class:'fab fa-twitter badge badge-primary p-2 twitter' %><br />
-  <% end %>
+  <div class='col'>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to  omniauth_authorize_path(resource_name, provider), method: :post, class:'btn twitter form-control d-flex align-items-center justify-content-center' do %>
+        <i class='fab fa-twitter fa-fw mx-1'></i><b><%= OmniAuth::Utils.camelize(provider) %>でログイン</b>
+      <% end %><br />
+    <% end %>
+  </div>
 <% end %>
