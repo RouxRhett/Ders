@@ -21,6 +21,18 @@
   overflow: hidden;
 }
 
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 540px;
+}
+
+.field_with_errors {
+  input {
+    @extend .is-invalid;
+  }
+}
+
 .navbar {
   background-color: #00a497;
 }

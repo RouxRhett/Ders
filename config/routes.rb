@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get '/users/mypage',      to: 'users#show',         as: 'mypage'
     get '/users/unsubscribe', to: 'users#unsubscribe',  as: 'unsubscribe_users'
     patch '/users/withdraw',  to: 'users#withdraw',     as: 'withdraw_users'
+    get '/users',             to: 'users#error',        as: 'user_error'
 
     # 達成確認画面でリロードした場合にshowを呼び出さないようにする
     get '/targets/confirm',   to: 'targets#error',      as: 'error_targets'
