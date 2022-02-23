@@ -2,24 +2,24 @@
   <%= render 'public/shared/error_messages', resource: target %>
 <div class='form-group row'>
   <%= f.label :goal, class:'col-3 col-form-label' %>
-  <div class='col'><%= f.text_field :goal, class:'form-control', placeholder:'例:参考書を1冊終わらせる!!' %></div>
+  <div class='col'><%= f.text_field :goal, class:'form-control', placeholder:'例:参考書を1冊終わらせる!!', required: true %></div>
 </div>
 <div class='form-group row'>
   <%= f.label :reason, class:'col-3 col-form-label' %>
-  <div class='col'><%= f.text_area :reason, class:'form-control', placeholder:'意味込みを書いてね' %></div>
+  <div class='col'><%= f.text_area :reason, class:'form-control', placeholder:'意味込みを書いてね', required: true %></div>
 </div>
 <div class='form-group row'>
   <%= f.label :num_tgt, class:'col-3 col-form-label' %>
   <div class='col-3'>
-    <%= f.text_field :num_tgt, class:'form-control text-right', placeholder:'目標を数値化してみよう!!' %>
+    <%= f.text_field :num_tgt, class:'form-control text-right', placeholder:'目標を数値化してみよう!!', required: true %>
   </div>
   <div class='col'>
-    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: true}, class:'form-control' %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: true}, class:'form-control', required: true %>
   </div>
 </div>
 <div class='form-group row'>
   <%= f.label :deadline, class:'col-3 col-form-label' %>
-  <div class='col'><%= f.date_field :deadline, class:'form-control', min: Date.current %></div>
+  <div class='col'><%= f.date_field :deadline, class:'form-control', min: Date.current , required: true %></div>
 </div>
 <div class='form-group'>
   <div class='row'>
