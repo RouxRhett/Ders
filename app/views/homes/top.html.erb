@@ -1,8 +1,29 @@
 <% content_for(:title, 'トップページ') %>
-<div class='container'>
-  ようこそ
-
-  トップ画面
-  <p><%= link_to 'ユーザログイン', new_user_session_path %></p>
-  <p><%= link_to '管理者ログイン', rails_admin_path %></p>
+<div class='navbar py-3'></div>
+<div class='accent pb-1'></div>
+<div class='top'>
+  <div class='container-sm py-5'>
+    <div class='text-center'>
+      <%= image_tag 'ders_logo.png',size:'540', class:'img-fluid' %>
+    </div>
+    <hr>
+    <div class='row'>
+      <div class='col text-muted pl-4 pr-0 h5'><br>
+        <p>Dersで</p>
+        <p>みんなの目標と</p>
+        <p>日々の頑張りを</p>
+        <p>応援しよう!</p>
+      </div>
+      <div class='col mt-3'>
+        <p><%= link_to 'ログイン', new_user_session_path, class:'btn bg-light form-control rounded-pill' %></p>
+        <p><%= link_to '新規登録', new_user_registration_path, class:'btn btn-primary form-control rounded-pill' %></p>
+        <p><%= link_to '管理者ログイン', rails_admin_path, class:'btn btn-secondary form-control rounded-pill' %></p>
+        <p>
+          <%= link_to 'https://github.com/RouxRhett/Ders', class:'btn btn-dark form-control rounded-pill', target:'_blank', rel:'noreferrer' do %>
+          <i class="fab fa-github fa-lg fa-fw"></i>リポジトリ
+          <% end%>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
