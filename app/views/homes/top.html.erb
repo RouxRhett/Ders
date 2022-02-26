@@ -13,11 +13,12 @@
         <p>応援しよう!</p>
       </div>
       <div class='col mt-3'>
-        <p><%= link_to 'ログイン', new_user_session_path, class:'btn bg-light form-control rounded-pill' %></p>
-        <p><%= link_to '新規登録', new_user_registration_path, class:'btn btn-primary form-control rounded-pill' %></p>
-        <p><%= link_to '管理者ログイン', rails_admin_path, class:'btn btn-secondary form-control rounded-pill' %></p>
+        <p><%= link_to 'ログイン', new_user_session_path, class:'btn bg-light btn-block rounded-pill' %></p>
+        <p><%= link_to '新規登録', new_user_registration_path, class:'btn btn-primary btn-block rounded-pill' %></p>
+        <p><%=  link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-block mb-3 sign_in rounded-pill", method: :post  %></p>
+        <p><%= link_to '管理者ログイン', rails_admin_path, class:'btn btn-warning btn-block rounded-pill' %></p>
         <p>
-          <%= link_to 'https://github.com/RouxRhett/Ders', class:'btn btn-dark form-control rounded-pill', target:'_blank', rel:'noreferrer' do %>
+          <%= link_to 'https://github.com/RouxRhett/Ders', class:'btn btn-dark btn-block rounded-pill', target:'_blank', rel:'noreferrer' do %>
           <i class="fab fa-github fa-lg fa-fw"></i>リポジトリ
           <% end%>
         </p>

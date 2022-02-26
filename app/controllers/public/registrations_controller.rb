@@ -4,6 +4,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # protect以下の追記を有効化する為に必要
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
+  before_action :ensure_guest_user, only: [:edit]
 
   # 新規登録後のリダイレクト先
   def after_sign_in_path_for(resource)
@@ -66,6 +67,13 @@ class Public::RegistrationsController < Devise::RegistrationsController
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
+
+  def ensure_guest_user
+    @user = current_user
+    if @user.name == "guestuser"
+      redirect_to mypage_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
+  end  
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
