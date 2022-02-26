@@ -61,11 +61,16 @@ class Public::TargetsController < ApplicationController
   end
 
   def edit
-    @target = Target.find(params[:id])
-    if @target.user == current_user
-      render 'edit'
-    else
-      flash[:danger] = '権限がありません'
+    begin
+      @target = Target.find(params[:id])
+      if @target.user == current_user
+        render 'edit'
+      else
+        flash[:danger] = '権限がありません'
+        redirect_to mypage_path
+      end
+    rescue
+      flash[:danger] = '指定された目標が存在しません'
       redirect_to mypage_path
     end
   end
