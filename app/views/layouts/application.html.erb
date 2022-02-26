@@ -19,17 +19,17 @@
 
   <body>
     <div id="wrap">
-    <% if current_user %>
-      <%= render 'layouts/header_user' %>
-    <% else %>
-      <div class='navbar py-3'></div>
-      <div class='accent pb-1'></div>
-    <% end %>
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= bootstrap_alert(message_type) %>"><%= message %></div>
-    <% end %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+      <% if current_user %>
+        <%= render 'layouts/header_user' %>
+      <% else %>
+        <div class='navbar py-3'></div>
+        <div class='accent pb-1'></div>
+      <% end %>
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= bootstrap_alert(message_type) %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
     </div>
   </body>
 </html>
