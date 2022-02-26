@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # ゲストユーザー用のルーティング
   devise_scope :user do
-    post '/users/guest_sign_in', to:'public/sessions#guest_sign_in'
+    post '/users/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
 
   scope module: 'public' do

@@ -71,9 +71,9 @@ class Public::RegistrationsController < Devise::RegistrationsController
   def ensure_guest_user
     @user = current_user
     if @user.name == "guestuser"
-      redirect_to mypage_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      redirect_to mypage_path, notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
-  end  
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
