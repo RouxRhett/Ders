@@ -29,7 +29,7 @@
         </div>
         <div class='col'>ﾀｽｸ平均:
           <span class='h2 my-0'>
-            <%= (@target.tasks.sum(:time) / @target.tasks.count).to_f %>
+            <%= @task_average %>
           </span>
           <%= @target.category.name %>
         </div>
@@ -88,4 +88,8 @@
         </div>
     </div>
   <% end %>
+</div>
+
+<div class='text-center'>
+  <%= paginate @tasks %>
 </div>

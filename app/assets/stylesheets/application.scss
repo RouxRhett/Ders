@@ -103,3 +103,16 @@ a.twitter:hover {
   background-color: #008abe;
   color: #fafdff;
 }
+
+.page-item.active .page-link {
+  background-color: #46BDB3;
+  border-color: #46BDB3;
+}
+
+.page-link {
+  color: #00AEA0;
+}
+
+.page-link:hover {
+  color: #007970;
+}

@@ -101,3 +101,6 @@ gem 'font-awesome-sass'
 # 日本語化
 gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
+
+# ページネーション
+gem 'kaminari'

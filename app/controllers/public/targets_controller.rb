@@ -23,10 +23,10 @@ class Public::TargetsController < ApplicationController
 
     if @cat_id
       targets = Target.where(completion_status: @filter_type, category_id: @cat_id)
-      @targets = targets.order(:deadline)
+      @targets = targets.order(:deadline).page(params[:page])
       @category_name = Category.find(@cat_id).name
     else
-      @targets = Target.where(completion_status: @filter_type).order(:deadline)
+      @targets = Target.where(completion_status: @filter_type).order(:deadline).page(params[:page])
       @category_name = '全て'
     end
   end
@@ -57,22 +57,26 @@ class Public::TargetsController < ApplicationController
   def show
     @target = Target.find(params[:id])
     @task = Task.new
-    @tasks = @target.tasks
+    @tasks = @target.tasks.page(params[:page])
+    # ゼロ徐算回避
+    if @target.tasks.count == 0
+      @task_average = 0
+    else
+      @task_average = (@target.tasks.sum(:time).to_f / @target.tasks.count.to_f).to_i
+    end
   end
 
   def edit
-    begin
-      @target = Target.find(params[:id])
-      if @target.user == current_user
-        render 'edit'
-      else
-        flash[:danger] = '権限がありません'
-        redirect_to mypage_path
-      end
-    rescue
-      flash[:danger] = '指定された目標が存在しません'
+    @target = Target.find(params[:id])
+    if @target.user == current_user
+      render 'edit'
+    else
+      flash[:danger] = '権限がありません'
       redirect_to mypage_path
     end
+  rescue
+    flash[:danger] = '指定された目標が存在しません'
+    redirect_to mypage_path
   end
 
   def update
