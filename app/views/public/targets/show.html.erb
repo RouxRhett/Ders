@@ -12,6 +12,9 @@
       </div>
     <% end %>
     <%= render 'public/targets/target_show', target: @target %>
+    <div class='container rounded border shadow-sm'>
+    </div>
+  </div>
   <% if current_user.id == @target.user_id && !@target.completion_status %>
     <div class='text-center'>
       <%= button_to '目標を達成した!', confirm_targets_path, { params: {id: @target.id}, class:'btn btn-info px-5' } %>
