@@ -12,7 +12,28 @@
       </div>
     <% end %>
     <%= render 'public/targets/target_show', target: @target %>
-    <div class='container rounded border shadow-sm'>
+    <div class='container rounded border shadow-sm p-3'>
+      <div class='row text-center font-weight-bold'>
+        <div class='col'>
+          進捗:
+          <span class='h2 my-0'>
+            <%= number_to_percentage @target.tasks.sum(:time).to_f / @target.num_tgt.to_f * 100, precision: 0 %>
+          </span>
+        </div>
+        <div class='col'>
+          タスク数:
+          <span class='h2 my-0'>
+            <%= @target.tasks.count %>
+          </span>
+          つ
+        </div>
+        <div class='col'>ﾀｽｸ平均:
+          <span class='h2 my-0'>
+            <%= (@target.tasks.sum(:time) / @target.tasks.count).to_f %>
+          </span>
+          <%= @target.category.name %>
+        </div>
+      </div>
     </div>
   </div>
   <% if current_user.id == @target.user_id && !@target.completion_status %>
