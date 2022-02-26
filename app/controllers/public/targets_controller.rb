@@ -90,6 +90,7 @@ class Public::TargetsController < ApplicationController
   def destroy
     target = Target.find(params[:id])
     target.destroy
+    flash[:danger] = '更新成功'
     redirect_to mypage_path
   end
 
