@@ -28,8 +28,11 @@ category_list.each do |category|
 end
 
 # アチーブメント用データ
-Achievement.create!(
-  name: '初めての目標設定をした!',
-  group: 0,
-  number: 1,
-)
+achievement_list = [['目標設定', 0], ['タスクを作成', 1], ['達成済みに', 2]]
+achievement_list.each do |achievement|
+  Achievement.create!(
+    name: "初めて#{achievement[0]}した!",
+    group: achievement[1],
+    number: 1,
+  )
+end
