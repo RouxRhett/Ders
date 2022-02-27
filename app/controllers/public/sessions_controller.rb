@@ -33,6 +33,7 @@ class Public::SessionsController < Devise::SessionsController
 
   protected
 
+  # ログインしようとする人が退会済みユーザーか判定する
   def user_state
     user = User.find_by(email: params[:user][:email])
     return if !user

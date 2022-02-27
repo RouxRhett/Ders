@@ -68,7 +68,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
     resource.update_without_password(params)
   end
 
-  def ensure_guest_user
+  def ensure_guest_user # ゲストユーザーはeditできないようにする
     @user = current_user
     if @user.name == "guestuser"
       redirect_to mypage_path, notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'

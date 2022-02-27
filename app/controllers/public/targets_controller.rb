@@ -62,6 +62,7 @@ class Public::TargetsController < ApplicationController
     if @target.tasks.count == 0
       @task_average = 0
     else
+      # これをviewにそのまま書くとゼロ除算エラーが発生する
       @task_average = (@target.tasks.sum(:time).to_f / @target.tasks.count.to_f).to_i
     end
   end
@@ -75,6 +76,7 @@ class Public::TargetsController < ApplicationController
       redirect_to mypage_path
     end
   rescue
+    # 存在しないIDの編集画面を表示しようとした時
     flash[:danger] = '指定された目標が存在しません'
     redirect_to mypage_path
   end
