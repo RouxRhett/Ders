@@ -13,13 +13,13 @@ class ApplicationController < ActionController::Base
   def achievement_check(group_name)
     @unlock_total = 0
     case  group_name
-    when  'target_create' # 目標を設定した時
+    when  'target_create' # 目標を設定した時、ログイン中のユーザーの目標の総数を取得
       judge_column = current_user.targets.count
       group_num    = 0
-    when  'task_create' # タスクを追加した時
+    when  'task_create' # タスクを追加した時、タスク数の取得
       judge_column = current_user.tasks.count
       group_num    = 1
-    when  'target_complete' # 目標を達成した時
+    when  'target_complete' # 目標を達成した時、達成済み目標数の取得
       judge_column = current_user.targets.where(completion_status: true).count
       group_num    = 2
     end
