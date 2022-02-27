@@ -35,4 +35,11 @@ achievement_list.each do |achievement|
     group: achievement[1],
     number: 1,
   )
+  9.times do |num|
+    Achievement.create!(
+      name: "#{num + 2}回、#{achievement[0]}した!",
+      group: achievement[1],
+      number: num + 2,
+    )
+  end
 end
