@@ -57,14 +57,19 @@ class Public::TargetsController < ApplicationController
 
   def show
     @target = Target.find(params[:id])
-    @task = Task.new
-    @tasks = @target.tasks.page(params[:page])
-    # ゼロ徐算回避
-    if @target.tasks.count == 0
-      @task_average = 0
+    if @target.public_status == true
+      @task = Task.new
+      @tasks = @target.tasks.page(params[:page])
+      # ゼロ徐算回避
+      if @target.tasks.count == 0
+        @task_average = 0
+      else
+        # これをviewにそのまま書くとゼロ除算エラーが発生する
+        @task_average = (@target.tasks.sum(:time).to_f / @target.tasks.count.to_f).to_i
+      end
     else
-      # これをviewにそのまま書くとゼロ除算エラーが発生する
-      @task_average = (@target.tasks.sum(:time).to_f / @target.tasks.count.to_f).to_i
+      flash[:danger] = '指定された目標は非公開です'
+      redirect_to targets_path
     end
   rescue
     flash[:danger] = '指定された目標は存在しません'
