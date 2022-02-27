@@ -22,11 +22,12 @@ class Public::TargetsController < ApplicationController
     end
 
     if @cat_id
-      targets = Target.where(completion_status: @filter_type, category_id: @cat_id)
+      targets = Target.where(completion_status: @filter_type, category_id: @cat_id, public_status: true)
       @targets = targets.order(:deadline).page(params[:page])
       @category_name = Category.find(@cat_id).name
     else
-      @targets = Target.where(completion_status: @filter_type).order(:deadline).page(params[:page])
+      targets = Target.where(completion_status: @filter_type, public_status: true)
+      @targets = targets.order(:deadline).page(params[:page])
       @category_name = '全て'
     end
   end
@@ -65,6 +66,9 @@ class Public::TargetsController < ApplicationController
       # これをviewにそのまま書くとゼロ除算エラーが発生する
       @task_average = (@target.tasks.sum(:time).to_f / @target.tasks.count.to_f).to_i
     end
+  rescue
+    flash[:danger] = '指定された目標は存在しません'
+    redirect_to targets_path
   end
 
   def edit
