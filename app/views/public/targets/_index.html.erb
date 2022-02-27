@@ -65,9 +65,11 @@
   <% end %>
 </div>
 <% end %>
-<div class='center-block'>
-  <%= paginate targets %>
-</div>
+<% if @tab3 != ' active' %>
+  <div class='center-block'>
+    <%= paginate targets %>
+  </div>
+<% end %>
 
 <% if targets.empty? %>
   <div class='container rounded border py-5 my-5 text-center'>
