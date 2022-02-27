@@ -19,7 +19,8 @@ class Public::UsersController < ApplicationController
       @tab2 = ' active'
     when 'favorite'
       favorites = Favorite.where(user_id: current_user.id).pluck(:target_id)
-      @targets = Target.find(favorites)
+      targets = Target.find(favorites)
+      @targets = Kaminari.paginate_array(targets).page(params[:page])
       @tab3 = ' active'
     else
       @targets = current_user.targets.order(:deadline).page(params[:page])
