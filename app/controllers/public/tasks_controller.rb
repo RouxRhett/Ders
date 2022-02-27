@@ -9,8 +9,10 @@ class Public::TasksController < ApplicationController
       if @unlock_total != 0
         flash[:info] = '実績を' + @unlock_total.to_s + 'つ解除しました！'
       end
+      flash[:success] = '追加できました!'
       redirect_back(fallback_location: root_path)
     else
+      flash[:danger] = '保存失敗しました。(数値は1以上で半角か確認してください)'
       redirect_back(fallback_location: root_path)
     end
   end
