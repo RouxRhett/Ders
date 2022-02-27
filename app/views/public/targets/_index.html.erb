@@ -52,3 +52,9 @@
 <div class='center-block'>
   <%= paginate targets %>
 </div>
+
+<% if targets.empty? %>
+  <div class='container rounded border py-5 text-center'>
+    検索結果は見つかりませんでした。
+  </div>
+<% end %>
