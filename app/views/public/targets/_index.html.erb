@@ -23,6 +23,12 @@
                 <%= (target.deadline - Date.current ).to_i %>
               </span>日!!
             </div>
+          <% else %>
+            <div class='text-center'>
+              <b class='text-black-50'>
+                <%= target.updated_at.to_date %>に達成
+              </b>
+            </div>
           <% end %>
           <div class='row d-flex justify-content-center align-items-end'>
             <span class='h2 my-0'><%= target.tasks.sum(:time) %></span>/<b class='text-black-50'><%= target.num_tgt %> <%= target.category.name %></b>
