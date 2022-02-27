@@ -22,7 +22,9 @@ class Public::TargetsController < ApplicationController
     end
 
     if @cat_id
-      targets = Target.where(completion_status: @filter_type, category_id: @cat_id, public_status: true)
+      targets = Target.where(
+        completion_status: @filter_type, category_id: @cat_id, public_status: true
+      )
       @targets = targets.order(:deadline).page(params[:page])
       @category_name = Category.find(@cat_id).name
     else
