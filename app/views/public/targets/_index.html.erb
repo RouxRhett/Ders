@@ -17,11 +17,13 @@
       </div>
       <div class='row'>
         <div class='col-4 col-sm-3 my-auto border-right border-4'>
-          <div class='row d-flex justify-content-center align-items-end'>
-            あと<span class='h2 my-0'>
-              <%= (target.deadline - Date.current ).to_i %>
-            </span>日!!
-          </div>
+          <% if target.completion_status == false %>
+            <div class='row d-flex justify-content-center align-items-end'>
+              あと<span class='h2 my-0'>
+                <%= (target.deadline - Date.current ).to_i %>
+              </span>日!!
+            </div>
+          <% end %>
           <div class='row d-flex justify-content-center align-items-end'>
             <span class='h2 my-0'><%= target.tasks.sum(:time) %></span>/<b class='text-black-50'><%= target.num_tgt %> <%= target.category.name %></b>
           </div>

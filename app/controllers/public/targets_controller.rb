@@ -57,7 +57,7 @@ class Public::TargetsController < ApplicationController
 
   def show
     @target = Target.find(params[:id])
-    if @target.public_status == true
+    if @target.public_status == true || @target.user == current_user
       @task = Task.new
       @tasks = @target.tasks.page(params[:page])
       # ゼロ徐算回避
