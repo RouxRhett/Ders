@@ -20,9 +20,12 @@ User.create!(
 )
 
 # カテゴリテストデータ
-Category.create!(
-  name: 'hoge'
-)
+category_list = ['時間','回数','ページ']
+category_list.each do |category|
+  Category.create!(
+    name: category
+  )
+end
 
 # アチーブメント用データ
 Achievement.create!(
