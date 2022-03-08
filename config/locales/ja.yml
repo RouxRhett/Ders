@@ -180,6 +180,8 @@ ja:
         num_tgt: 数値化してみよう
         deadline: いつまでに？
         public_status: 公開する？
+        public_status_true: 公開
+        public_status_false: 非公開
       admin:
         email: メールアドレス
         password: パスワード
