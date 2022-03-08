@@ -26,16 +26,12 @@
     <%= f.label :public_status, class:'col-3 col-form-label' %>
     <div class='col'>
       <div class='form-check'>
-        <label class='form-check-label'>
-          <%= f.radio_button :public_status, 'true', class:'form-check-input' %>
-          <span>公開</span>
-        </label>
+        <%= f.radio_button :public_status, :true, class:'form-check-input' %>
+        <%= f.label :public_status_true, '公開する', class:'form-check-label' %>
       </div>
       <div class='form-check'>
-        <label class='form-check-label'>
-          <%= f.radio_button :public_status, 'false', class:'form-check-input' %>
-          <span>非公開</span>
-        </label>
+        <%= f.radio_button :public_status, :false, class:'form-check-input' %>
+        <%= f.label :public_status_false, '公開しない', class:'form-check-label' %>
       </div>
     </div>
   </div>
