@@ -3,7 +3,6 @@ class Public::TargetsController < ApplicationController
 
   def index
     @categories = Category.all
-    
     # タブ(挑戦中・達成済み)が選ばれた時のみ使用
     if params[:filter]
       @cat_id = params[:filter]
