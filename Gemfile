@@ -52,6 +52,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # コーディング規約が遵守できているかチェックするため,後ほど有効化
   gem 'rubocop-airbnb'
+  # N+1チェック
+  gem 'bullet'
 end
 
 group :test do

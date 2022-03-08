@@ -3,7 +3,6 @@ class Public::TargetsController < ApplicationController
 
   def index
     @categories = Category.all
-    
     # タブ(挑戦中・達成済み)が選ばれた時のみ使用
     if params[:filter]
       @cat_id = params[:filter]
@@ -28,13 +27,13 @@ class Public::TargetsController < ApplicationController
     if @cat_id
       targets = Target.where(
         completion_status: @filter_type, category_id: @cat_id, public_status: true
-      )
+      ).includes([:category])
       @targets = targets.order(:deadline).page(params[:page])
       @category_name = Category.find(@cat_id).name
     else
       # 初期値
       targets = Target.where(completion_status: @filter_type, public_status: true)
-      @targets = targets.order(:deadline).page(params[:page])
+      @targets = targets.order(:deadline).includes([:category]).page(params[:page])
       @category_name = '全て'
     end
   end
