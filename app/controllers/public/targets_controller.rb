@@ -3,12 +3,14 @@ class Public::TargetsController < ApplicationController
 
   def index
     @categories = Category.all
+    # タブ(挑戦中・達成済み)が選ばれた時のみ使用
     if params[:filter]
       @cat_id = params[:filter]
     else
       @cat_id = nil
     end
 
+    # 検索条件の定義と該当ボタンのクラス追加
     case params[:filter_type]
     when 'true'
       @filter_type = true
@@ -17,19 +19,21 @@ class Public::TargetsController < ApplicationController
       @filter_type = false
       @tab0 = ' active'
     else
-      @filter_type = true
-      @tab1 = ' active'
+      @filter_type = false
+      @tab0 = ' active'
     end
 
+    # 条件を元に目標の検索を行う。指定カテゴリの名前もここで定義
     if @cat_id
       targets = Target.where(
         completion_status: @filter_type, category_id: @cat_id, public_status: true
-      )
+      ).includes([:category])
       @targets = targets.order(:deadline).page(params[:page])
       @category_name = Category.find(@cat_id).name
     else
+      # 初期値
       targets = Target.where(completion_status: @filter_type, public_status: true)
-      @targets = targets.order(:deadline).page(params[:page])
+      @targets = targets.order(:deadline).includes([:category]).page(params[:page])
       @category_name = '全て'
     end
   end

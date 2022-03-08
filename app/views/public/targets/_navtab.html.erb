@@ -1,7 +1,7 @@
 <div class="dropdown d-flex justify-content-end">
   <%= link_to 'カテゴリ', '', class:'btn btn-info dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': true, 'aria-expanded': false %>
   <div class="dropdown-menu">
-    <%= link_to '全て', targets_path(filter_type: filter_type), class:'dropdown-item'%>
+    <%= link_to '全て', targets_path(filter_type: filter_type), class:'dropdown-item', remote: true %>
     <% @categories.each do |category| %>
       <%= link_to category.name, targets_path(filter_type: filter_type, filter: category.id), class:'dropdown-item', remote: true %>
     <% end %>
