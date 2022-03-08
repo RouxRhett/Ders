@@ -28,6 +28,8 @@ class User < ApplicationRecord
   has_many :favorites,     dependent: :destroy
   has_many :unlock_lists,  dependent: :destroy
   attachment :image
+  # 架空モデルの定義、中間テーブル「favorites」を経由してTargetモデルを参照する
+  has_many :favorite_targets, through: :favorites, source: 'target'
 
   def self.dummy_email(auth)
     "#{auth[:uid]}@example.com"
