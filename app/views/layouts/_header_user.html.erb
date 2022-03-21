@@ -7,6 +7,7 @@
     <%= attachment_image_tag current_user, :image, :fill, 40, 40, format: 'png', fallback:'profile_icon.png', size:'40x40', class:'rounded-circle' %>
     <% end %>
     <ul class="dropdown-menu dropdown-menu-right">
+      <li><%= link_to ' みんなの目標', unlock_lists_path, class:'dropdown-item text-dark fas fa-flag'%></li>
       <li><%= link_to ' マイページ', mypage_path, class:'dropdown-item text-dark fas fa-pager'%></li>
       <li><%= link_to ' 解除した実績', unlock_lists_path, class:'dropdown-item text-dark fas fa-trophy'%></li>
       <li><%= link_to ' アカウント編集', edit_user_registration_path, class:'dropdown-item text-dark fas fa-cog' %></li>
