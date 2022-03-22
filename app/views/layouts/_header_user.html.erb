@@ -4,10 +4,13 @@
   <% end %>
   <div class="dropdown">
     <%= link_to '#', class: 'nav-link p-1 mx-2', 'data-toggle': :dropdown, 'aria-haspopup': :true, 'aria-expanded': :false do %>
-    <%= attachment_image_tag current_user, :image, :fill, 40, 40, format: 'png', fallback:'profile_icon.png', size:'40x40', class:'rounded-circle' %>
+      <%= attachment_image_tag current_user, :image, :fill, 40, 40, format: 'png', fallback:'profile_icon.png', size:'40x40', class:'rounded-circle' %>
+      <i class="fas fa-caret-down"></i>
     <% end %>
     <ul class="dropdown-menu dropdown-menu-right">
+      <li><%= link_to ' みんなの目標', unlock_lists_path, class:'dropdown-item text-dark fas fa-flag'%></li>
       <li><%= link_to ' マイページ', mypage_path, class:'dropdown-item text-dark fas fa-pager'%></li>
+      <li><%= link_to ' 解除した実績', unlock_lists_path, class:'dropdown-item text-dark fas fa-trophy'%></li>
       <li><%= link_to ' アカウント編集', edit_user_registration_path, class:'dropdown-item text-dark fas fa-cog' %></li>
       <li>
         <hr class="dropdown-divider">
