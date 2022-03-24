@@ -22,4 +22,10 @@
     </div>
   </div>
   <% end %>
+
+  <% if @unlock_lists.empty? %>
+    <div class='container rounded border py-5 my-5 text-center'>
+      まだ解除された実績がありません、目標を立ててみましょう！
+    </div>
+  <% end %>
 </div>
