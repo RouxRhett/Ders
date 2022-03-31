@@ -117,3 +117,8 @@ a.twitter:hover {
 .page-link:hover {
   color: #007970;
 }
+
+.target-card:hover{
+  transform: scale(1.05, 1.05);
+  transition: all .2s;
+}
