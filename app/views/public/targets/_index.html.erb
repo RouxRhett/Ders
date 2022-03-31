@@ -1,7 +1,7 @@
 <% targets.each do |target| %>
 <div class='my-5'>
   <%= link_to target_path(target), class:'text-dark text-decoration-none' do %>
-  <div class='container rounded border shadow'>
+  <div class='container rounded border shadow target-card'>
     <div class='row'>
       <% if target.completion_status %>
         <div class='col-3 col-sm-2 mx-4 py-1 px-0 h5 text-center text-white bg-success rounded-bottom rounded-3'>
