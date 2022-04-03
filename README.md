@@ -44,5 +44,3 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9,vscode
 
-## 使用素材
-- 未定
