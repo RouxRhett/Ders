@@ -31,9 +31,6 @@
 - 新しい学習を始めたい時
 - 他ユーザーが自分と同じ目標に対し、どのようなことを行ってきたかを知りたい時
 
-## 設計書
-- *準備中です*
-
 ## チャレンジ要素一覧
 - [Googleシート](https://docs.google.com/spreadsheets/d/1m05_g1JO88K2z_ncjIdxV7_m-uhkwuhD6ZGa9sCk_MA)をご覧ください。
 
@@ -43,4 +40,3 @@
 - フレームワーク：Ruby on Rails 5
 - JSライブラリ：jQuery
 - IDE：Cloud9,vscode
-
