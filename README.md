@@ -1,7 +1,10 @@
 # Ders! -Depend Stairs-
-
+![Dersロゴ](/app/assets/images/ders_readme.png)
 ## サイト概要
-「Ders!」は頑張るを見える化する目標達成記録サイトです。目標もユーザみんなで共有し日々の頑張りを応援します。
+「Ders!」は頑張るを見える化する目標達成記録サイトです。目標もユーザみんなで共有し日々の頑張りを応援します。<br>
+URLは[こちら](http://qiita.com "トップページ | Ders")から。PC・スマホ対応
+<br>
+![目標カード](/app/assets/images/target_cards.png)
 
 ### 実装したい機能は以下の通りです。
 - ユーザの操作サイクル(1-3)
@@ -31,9 +34,6 @@
 - 新しい学習を始めたい時
 - 他ユーザーが自分と同じ目標に対し、どのようなことを行ってきたかを知りたい時
 
-## 設計書
-- *準備中です*
-
 ## チャレンジ要素一覧
 - [Googleシート](https://docs.google.com/spreadsheets/d/1m05_g1JO88K2z_ncjIdxV7_m-uhkwuhD6ZGa9sCk_MA)をご覧ください。
 
@@ -43,6 +43,3 @@
 - フレームワーク：Ruby on Rails 5
 - JSライブラリ：jQuery
 - IDE：Cloud9,vscode
-
-## 使用素材
-- 未定
