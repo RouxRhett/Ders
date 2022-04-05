@@ -1,5 +1,5 @@
 # Ders! -Depend Stairs-
-
+![Dersロゴ](/app/assets/images/ders_readme.png)
 ## サイト概要
 「Ders!」は頑張るを見える化する目標達成記録サイトです。目標もユーザみんなで共有し日々の頑張りを応援します。<br>
 URLは[こちら](http://qiita.com "トップページ | Ders")から。PC・スマホ対応
