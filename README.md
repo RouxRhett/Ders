@@ -3,6 +3,7 @@
 ## サイト概要
 「Ders!」は頑張るを見える化する目標達成記録サイトです。目標もユーザみんなで共有し日々の頑張りを応援します。<br>
 URLは<a href="http://ders.jp" title="トップページ | Ders" target="_blank">こちら</a>から。PC・スマホ対応
+[こちら](http://ders.jp){:target="_blank" rel="noopener"}
 <br>
 ![目標カード](/app/assets/images/target_cards.png)
 
